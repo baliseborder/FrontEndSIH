@@ -1,0 +1,87 @@
+<div  class="container">
+    <div class="col-md-9 col-sm-6 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Nouveau Rapport Personnels </div>       
+       
+                                 <div class="panel-body" *ngIf="mode==1">
+                                        <form  (ngSubmit)="onSavePersonnel()" >
+                                            <div class="form-group">
+                                                <label class="control-label">Nombre Specialiste</label>
+                                                <input class="form-control" type="number" name="nombreSpecialiste" [(ngModel)]="currentPersonne.nombreSpecialiste">  
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Nombre TS</label>
+                                                <input class="form-control" type="number" name="nombreTs"  [(ngModel)]="currentPersonne.nombreTs">  
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Nombre Ims</label>
+                                                <input class="form-control" type="number" name="nombreIms"  [(ngModel)]="currentPersonne.nombreIms">  
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label">Nombre Secretariats</label>
+                                                <input class="form-control" type="number" name="nombreSecretariats"  [(ngModel)]="currentPersonne.nombreSecretariats">  
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label">Nombre Generalistes</label>
+                                                <input class="form-control" type="number" name="nombreGeneralistes"  [(ngModel)]="currentPersonne.nombreGeneralistes">  
+                                            </div>
+                            
+                                            <div class="form-group">
+                                                <label class="control-label">nombre Sage-Femmes</label>
+                                                <input class="form-control" type="number" name="nombreSageFemmes"  [(ngModel)]="currentPersonne.nombreSageFemmes">  
+                                            </div>
+
+                                            <div class="form-group" *ngIf="mode==2">
+                                                <label class="control-label">Nombre Ai</label>
+                                                <input class="form-control" type="number" name="nombreAi"  [(ngModel)]="currentPersonne.nombreAi">  
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label">Nombre Pharmaciens</label>
+                                                <input class="form-control" type="number" name="nombrePharmaciens"  [(ngModel)]="currentPersonne.nombrePharmaciens">  
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label">Nombre Tss</label>
+                                                <input class="form-control" type="number" name="nombreTss"  [(ngModel)]="currentPersonne.nombreTss">  
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label">Nombre Ide</label>
+                                                <input class="form-control" type="number" name="nombreIde"  [(ngModel)]="currentPersonne.nombreIde">  
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label">Nombre Gs</label>
+                                                <input class="form-control" type="number" name="nombreGs"  [(ngModel)]="currentPersonne.nombreGs">  
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label">Nombre Fs</label>
+                                                <input class="form-control" type="number" name="nombreFs"  [(ngModel)]="currentPersonne.nombreFs">  
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Nombre Dentistes</label>
+                                                <input class="form-control" type="number" name="nombredentistes"  [(ngModel)]="currentPersonne.nombredentistes">  
+                                            </div>
+
+                                            <button class="btn btn-success" type="submit">Save</button>
+                            
+                                        </form>
+                        </div>
+                        <div class="panel-body" *ngIf="mode==2">
+                                    <button class="btn btn-success"  (click)="onNewPesonne()">Nouveau Rapport Personnels</button>
+                                    <div class="form-group">
+                                        <label >ID:</label><label>{{currentPersonne.idPersonne}}</label>
+                                    </div>
+                        
+                                    <div class="form-group">
+                                        <label >nombre Specialiste :</label><label>{{currentPersonne.nombreSpecialiste}}</label>
+                                    </div>
+                                                  
+                        </div>
+        </div>
+ </div>
+</div>

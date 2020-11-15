@@ -1,0 +1,64 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a href=""><img src="../assets/logo.png"   width="50" height="45"></a>
+    </div>
+    <ul class="nav navbar-nav">
+    <li class="active"><a routerLink="/Produits">Home</a></li>
+    
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Produit
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a routerLink="/produit">Chercher</a></li>
+          <li><a routerLink="/new-product">Ajouter </a></li>
+        </ul>
+      </li>
+
+
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hospitalisation
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+              <li><a routerLink="/hospitalisation">Ajouter </a></li>
+              <li><a routerLink="/listHosp">List</a></li>
+        </ul>
+      </li>
+
+
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Personnels
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a routerLink="/personnel">Ajouter </a></li>
+          <li><a routerLink="/listPersonne">List </a></li>
+        </ul>
+      </li>
+
+      
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Pathologies
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+              <li><a routerLink="/pathologie">Ajouter </a></li>
+        </ul>
+      </li>
+
+
+      <li><a routerLink="/MyChart">MyChart</a></li>
+
+      <li><a href="#">Page 1</a></li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+
+
+  </div>
+</nav>
+
+<router-outlet>
+
+</router-outlet>

@@ -1,0 +1,23 @@
+[
+
+    {
+        "id":1,
+        "nom":"Service Urgence"
+     },
+     {
+        "id":2,
+        "nom":"Service Pediatrie"
+     },
+     {
+        "id":3,
+        "nom":"Service Urgence"
+     },
+     {
+        "id":4,
+        "nom":"Service Urgence"
+     },
+     {
+        "id":5,
+        "nom":"Service Urgence"
+     }
+]

@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Liste des Personnels </div>
+  <table class="table table-bordered table-responsive">
+      <thead>
+             <tr>
+              <th scope="col">ID</th>
+              <th scope="col">NOMBRE SPECIALISTE</th>
+              <th scope="col">NOMBRE TS</th>
+           <!--  <th scope="col">NOMBRE IMS</th>
+           <th scope="col">NOMBRE SECRETARIATS</th>
+            <th scope="col">NOMBRE GENERALISTES</th>
+            <th scope="col">NOMBRE SAGE-FEMMES</th>
+            <th scope="col">NOMBRE AI</th>
+            <th scope="col">NOMBRE PHARMACIENS</th>
+            <th scope="col">NOMBRE TSS</th>
+            <th scope="col">NOMBRE IDE</th>
+            <th scope="col">NOMBRE DENTISTES</th>-->
+          <th scope="col">ACTIONS</th>
+        </tr>
+      </thead>
+       <tbody>
+         <tr *ngFor="let pr of personne">
+          <td>{{pr.idPersonne}}</td>
+          <td>{{pr.nombreSpecialiste}}</td>
+          <td>{{pr.nombreTs}}</td>
+          <!--<td>{{pr.nombreIms}}</td>
+          <td>{{pr.nombreSecretariats}}</td>
+          <td>{{pr.nombreGeneralistes}}</td>
+          <td>{{pr.nombreSageFemmes}}</td>
+          <td>{{pr.nombreAi}}</td>
+          <td>{{pr.nombrePharmaciens}}</td>
+          <td>{{pr.nombreTss}}</td>
+          <td>{{pr.nombreIde}}</td>
+          <td>{{Pr.nombredentistes}}</td>-->
+          <td><button (click)="onDelete(pr.idPersonne)" class="btn btn-danger">Delete</button></td>
+          <td><button (click)="onUpdate(pr.idPersonne)" class="btn btn-success">Update</button></td>
+          </tr>
+        </tbody>
+                    <!--<ul *ngIf="pages"  class="nav nav-pills">
+                      <li [ngClass]="i==currentPage?'active':''" *ngFor="let h of pages; let i=index" >
+                          <a  class="clickable" (click)="onPageHospitalisation(i)">{{i}}</a>
+                      </li>
+                  </ul>-->
+    </table>
+  
+  
+  
+  </div>
+  </div>

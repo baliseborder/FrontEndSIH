@@ -1,0 +1,181 @@
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<!--<p>mychart works!</p>
+<div class="row">
+  <div class="col-sm">col-sm</div>
+  <div class="col-sm">
+    <echarts [initOpts]="initOpts" [options]="options"></echarts>
+  </div>
+</div>
+<div  class="col-ms">
+   <div class="button-groups">
+      <button (click)="theme=undefined" nz-button nzType="default">default</button>
+      <button (click)="theme='macarons'" nz-button nzType="default">macarons</button>
+      <button (click)="theme='dark'" nz-button nzType="default">dark</button>
+      </div>
+    <div echarts [options]="options1" [theme]="theme" class="demo-chart"></div>
+</div>
+
+
+
+  <div class="button-groups">
+    <button (click)="isLoading=!isLoading" nz-button nzType="default">Toggle Loading</button>
+  </div>
+  <div echarts [options]="options2" [loading]="isLoading" theme="macarons" class="demo-chart"></div>
+
+-->
+<!--<div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading"> Table d'abord</div>
+            <div class="panel-body">Statistique</div>
+            <div class="col-sm"><echarts [initOpts]="initOpts" [options]="options"></echarts></div>
+
+            <div class="col-sm">
+                <div echarts [options]="options2" [loading]="isLoading" theme="macarons" class="demo-chart"></div>
+
+              <div class="button-groups">
+                <button (click)="theme=undefined" nz-button nzType="default">default</button>
+                <button (click)="theme='macarons'" nz-button nzType="default">macarons</button>
+                <button (click)="theme='dark'" nz-button nzType="default">dark</button>
+              </div>-->
+              <!--<div echarts [options]="options1" [theme]="theme" class="demo-chart"></div>
+
+            </div>
+        </div>
+</div>-->
+
+
+<!------------------------------------------------------------>
+ <div class="container">
+  <div class="panel panel-primary" style="width: 100%;">
+      <div class="panel-heading">TABLE DEBORD</div>
+      <div class="panel-body">
+       
+          <div class="row">
+
+            <div class="col-md-6" >
+              <div class="panel panel-success">
+                <div class="panel-heading">Panel 1</div>
+                  <div class="panel-body">
+                      <div class="chart-wrapper" style="width: 100%; height: 50%;">
+                        <canvas baseChart 
+                        [datasets]="lineChartData" 
+                        [labels]="lineChartLabels" 
+                        [options]="lineChartOptions"
+                        [colors]="lineChartColors" 
+                        [legend]="lineChartLegend" 
+                        [chartType]="lineChartType" 
+                        [plugins]="lineChartPlugins">
+                  </canvas>
+                    </div>
+                
+                   </div>
+               </div>
+            </div>
+
+              <div class="col-md-6">
+              <div class="panel panel-warning">
+                <div class="panel-heading">Panel 2 </div>
+                  <div class="panel-body">
+                    <canvas baseChart *ngIf="doughnutChartData"
+                        [data]="doughnutChartData"
+                        [labels]="doughnutChartLabels"
+                        [chartType]="doughnutChartType">
+                    </canvas> 
+
+                    <!--    
+                      <canvas baseChart 
+                        [data]="doughnutChartData"
+                        [labels]="doughnutChartLabels"
+                        [chartType]="doughnutChartType">
+                    </canvas> 
+                    -->
+                  </div>
+               </div>
+            </div>
+
+
+
+
+
+
+            <div class="col-md-4">
+              <div class="panel panel-primary">
+                <div class="panel-heading">Panel 1</div>
+                  <div class="panel-body">
+                    <echarts [initOpts]="initOpts" [options]="options"></echarts>
+                   </div>
+               </div>
+            </div>
+            <div class="col-md-4">
+              <div class="panel panel-primary">
+                <div class="panel-heading">Panel 2 </div>
+                  <div class="panel-body">
+                    
+                    <canvas baseChart 
+                        [data]="doughnutChartData"
+                        [labels]="doughnutChartLabels"
+                        [chartType]="doughnutChartType">
+                      </canvas>
+                   </div>
+               </div> 
+            </div> <div class="col-md-4">
+              <div class="panel panel-primary">
+                <div class="panel-heading">Panel 3</div>
+                  <div class="panel-body">
+                    <echarts [initOpts]="initOpts" [options]="options"></echarts>
+                  </div>
+               </div> 
+            </div>
+
+          </div>    
+          <div class="row">
+          
+            <div class="col-md-6">
+              <div class="panel panel-primary">
+                <div class="panel-heading">Panel 4</div>
+                  <div class="panel-body">
+                   <div echarts [options]="options2" [loading]="isLoading" theme="macarons" class="demo-chart"></div>                                                
+                  </div>
+               </div> 
+            </div>
+            <div class="col-md-6">
+              <div class="panel panel-primary">
+                <div class="panel-heading">Panel 5</div>
+                  <div class="panel-body">
+                    <div echarts [options]="options5" [theme]="theme" class="demo-chart"></div>                   </div>
+               </div> 
+            </div>
+          </div>   
+      </div>
+  </div>
+</div>
+<!--=============================================-->
+<!--
+<div class="row">
+  <div class="col-lg-5">
+    <app-my-chart
+    [type]="'bar'"
+    [title]="'Produit par Catogories'"
+    [data]="'get'">
+
+
+    </app-my-chart>
+
+
+  </div>
+
+</div>
+-->
+
+ 
+<!--<div id="chart">
+  <apx-chart
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+    [dataLabels]="chartOptions.dataLabels"
+    [plotOptions]="chartOptions.plotOptions"
+    [xaxis]="chartOptions.xaxis"
+    [stroke]="chartOptions.stroke"
+  ></apx-chart>
+</div>-->

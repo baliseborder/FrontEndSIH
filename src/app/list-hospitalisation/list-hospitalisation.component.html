@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="panel panel-primary">
+      <div class="panel-heading">Liste des hospitalisations </div>
+      <div class="panel-body">
+<!--<form #f="ngForm" (ngSubmit)="onChercher(f.value)">
+            <div class="form-group">
+                <label>Keyword</label>
+                <input type="text" name="keyword" ngModel>
+                <button type="submit" class="btn btn-primary">Chercher</button>
+            </div>
+
+</form>-->
+<!--<button class="btn btn-primary" (click)="onGetHospitalisation()"></button>-->
+<table class="table table-bordered table-responsive">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NOMBRE GUERRIS</th>
+        <th scope="col">NOMBRE REFERES</th>
+        <th scope="col">NOMBRE DECES</th>
+        <th scope="col">NOMBRE CHAMBRE</th>
+        <th scope="col">NOMBRE LITS</th>
+        <th scope="col">NOMBRE CONSULT</th>
+        <th scope="col">Date Debut</th>
+        <th scope="col">Date Fin</th>
+        <th scope="col">NOM SERVICE</th>
+        <th scope="col">ACTIONS</th>
+      </tr>
+    </thead>
+    
+
+    <tbody>
+      <tr *ngFor= "let h of hospitalisations">
+        <th scope="row">{{h.idHosp}}</th>
+        <td>{{h.nombreGuerris}}</td>
+        <td>{{h.nombreReferes}}</td>
+        <td>{{h.nombreDeces}}</td>
+        <td>{{h.nombreChambre}}</td>
+        <td>{{h.nombreLits}}</td>
+        <td>{{h.nombreConsul}}</td>
+        <td>{{h.dateDebutHosp}}</td>
+        <td>{{h.dateFinHosp}}</td>
+        <td>{{h.nomServices}}</td>
+        <td><button (click)="onDelete(h.idHosp)" class="btn btn-danger">Delete</button></td>
+        <td><button (click)="onUpdate(h.idHosp)" class="btn btn-success">Update</button></td>
+        
+        
+    </tbody>
+</table>
+<!--<ul *ngIf="pages" class="nav nav-pills">
+  <li  [ngClass]="i==currentPage?'active':''"  *ngFor="let h of  pages"; let i="index">
+    <a class="clickable" (click)="onGetHospitalisation()">lmlm</a>
+  </li>
+  </ul>
+<ul *ngIf="pages"  >
+  <li [ngClass]="i==currentPage?'active':''" *ngFor="let h of pages; let i=index" >
+      <a  class="clickable" (click)="onPageHospitalisation(i)">{{i}}</a>
+  </li>
+</ul>-->
+      </div>
+</div>
+</div>
+
+
+
+<div class="chart-wrapper" style="width: 50%; height: 50%;">
+  <canvas baseChart 
+      [datasets]="lineChartData" 
+      [labels]="lineChartLabels" 
+      [options]="lineChartOptions"
+      [colors]="lineChartColors" 
+      [legend]="lineChartLegend" 
+      [chartType]="lineChartType" 
+      [plugins]="lineChartPlugins">
+  </canvas>
+</div>
