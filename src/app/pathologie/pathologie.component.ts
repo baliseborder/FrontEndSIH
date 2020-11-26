@@ -30,6 +30,7 @@ public mode:number=1;
   //console.log(res);
 //this.router.navigateByUrl("/hospitalisations")
    this.currentPathologie=res
+   alert("donnes ajouter avec succes ")
    this.mode=2;
 
   },err=>{
@@ -42,6 +43,7 @@ public mode:number=1;
     this.mode=1;
   }
   
+
 
 }
 

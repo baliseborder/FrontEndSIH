@@ -35,7 +35,7 @@ export class MychartComponent implements OnInit {
   ngOnInit(): void {
     debugger
       
-    this.chartServiceService.getStatHospitalisation('2020-01-01').subscribe(
+    this.chartServiceService.getStatHospitalisation('2020-11-01').subscribe(
       data => {
         //alert(data);
         //this.nbGuerris = data;

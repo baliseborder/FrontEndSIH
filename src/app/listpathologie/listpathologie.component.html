@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Liste des Pathologies </div>
+        <div class="panel-body">
+  <!--<form #f="ngForm" (ngSubmit)="onChercher(f.value)">
+              <div class="form-group">
+                  <label>Keyword</label>
+                  <input type="text" name="keyword" ngModel>
+                  <button type="submit" class="btn btn-primary">Chercher</button>
+              </div>
+  
+  </form>-->
+  <table class="table table-bordered table-responsive">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nom PATHALOGIE</th>
+          <th scope="col">NOMBRE SEXE M</th>
+          <th scope="col">NOMBRE SEXE F</th>
+          <th scope="col">NOMBRE MORT M</th>
+          <th scope="col">NOMBRE MORT F</th>
+          <th scope="col">ACTIONS</th>
+        </tr>
+      </thead>
+      
+  
+      <tbody>
+        <tr *ngFor= "let path of pathologies">
+          <td>{{path.idPath}}</td>
+          <td>{{path.nbreSexM}}</td>
+          <!--<td>{{p.nbreSexF}}</td>
+          <td>{{p.nbreMortM}}</td>
+          <td>{{p.nbreMortF}}</td>-->
+ 
+          <td><button (click)="onDelete(path.idPath)" class="btn btn-danger">Delete</button></td>
+          <td><button (click)="onUpdate(path.idpath)" class="btn btn-success">Update</button></td>
+          
+          
+      </tbody>
+  </table>
+  <!--<ul *ngIf="pages" class="nav nav-pills">
+    <li  [ngClass]="i==currentPage?'active':''"  *ngFor="let h of  pages"; let i="index">
+      <a class="clickable" (click)="onGetHospitalisation()">lmlm</a>
+    </li>
+    </ul>
+  <ul *ngIf="pages"  >
+    <li [ngClass]="i==currentPage?'active':''" *ngFor="let h of pages; let i=index" >
+        <a  class="clickable" (click)="onPageHospitalisation(i)">{{i}}</a>
+    </li>
+  </ul>-->
+        </div>
+  </div>
+  </div>
+  
+  
+  

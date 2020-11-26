@@ -74,7 +74,7 @@ public pages:Array<number>
     this.router.navigateByUrl("/hospitalisation/"+btoa(url));
   }
 
-  /*chercherHospitalisation(){
+ /* chercherHospitalisation(){
     this.hospitalisationService.getHospByKeyword(this.currentKeyword,this.currentPage,this.size)
     //subscribe c a d j attend si y de donnes arrive 
     .subscribe(data=>{
@@ -85,8 +85,8 @@ public pages:Array<number>
       console.log(err)
 
     })
-  }*/
-
+  }
+*/
 
 /* onPageHospitalisation(i){
 
@@ -95,10 +95,9 @@ public pages:Array<number>
   this.chercherHospitalisation();
   }*/
 
-  onGetHospitalisation(){
-      this.hospitalisationService.getHopitalisation1(this.currentPage,this.size)
-      //subscribe c a d j attend si y de donnes arrive 
-      .subscribe(data=>{
+ /* onGetHospitalisation(){
+     this.hospitalisationService.getHospitalisation(this.currentPage,this.size)
+     .subscribe(data=>{
         debugger
         this.hospitalisations=data;
       // this.totalPages=data["page"].totalPages;
@@ -108,7 +107,7 @@ public pages:Array<number>
   
       })
          
-      }
+      }*/
 
     /*  onCherche(form: any){
           this.currentPage=0;
@@ -122,7 +121,7 @@ public pages:Array<number>
 //public nbguerris: [];
 getNbGuerris;
 
-      lineChartData: ChartDataSets[] = [
+  /*    lineChartData: ChartDataSets[] = [
   // { data: [this.chartServiceService.getNbGuerris(Date)], label: 'NOMBRE GUERRIS' },
       { data: [11, 11, 11,78, 108, 77, 75,85, 72, 11, 11, 11], label: 'NOMBRE Ref' },
         { data: [85, 72, 78, 108, 77, 75,85, 72, 78, 75, 77, 75], label: 'NOMBRE GUERRIS' },

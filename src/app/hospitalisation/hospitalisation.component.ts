@@ -33,14 +33,14 @@ public pages:Array<number>*/
  
    // this.url=atob(this.activatedRoute.snapshot.params.id);
    // if(this.url != undefined){
-      this.hospitServices.getHospitalisation(this.url).subscribe(
+     /* this.hospitServices.getHospitalisation(this.url).subscribe(
         data =>{
         // this.currentHospit = data;
        /*  if(this.currentHospit != undefined){
          // this.isHidden = false;
          }*/
-        }
-      )
+       /* }
+      )**/
    // }
  
 
@@ -64,8 +64,7 @@ public pages:Array<number>*/
     }
     onNewHospitalisation(){
       this.mode=1;
-      this.currentHospit;
-      this.onSaveHospitalisation();
+      this.currentHospit
 
     }
   

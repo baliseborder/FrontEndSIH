@@ -16,6 +16,9 @@ import { ListPersonnelComponent } from './list-personnel/list-personnel.componen
 import { ChartsModule } from 'ng2-charts';
 import { MychartComponent } from './mychart/mychart.component';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { ListpathologieComponent } from './listpathologie/listpathologie.component';
+import { PageLoginComponent } from './page-login/page-login.component';
+import { AuthentificationService } from './authentification-service.service';
 
 
 //import { Hospitalisation } from './model/hospit.model';
@@ -32,8 +35,10 @@ import { NgxEchartsModule } from 'ngx-echarts';
     PathologieComponent,
     ListHospitalisationComponent,
     ListPersonnelComponent,
-    MychartComponent
-
+    MychartComponent,
+    ListpathologieComponent,
+    PageLoginComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
       echarts: () => import('echarts')
     })
   ],
-  providers: [],
+  providers: [AuthentificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

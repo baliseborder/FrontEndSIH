@@ -1,26 +1,32 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AuthentificationService } from '../authentification-service.service';
 import { Hospitalisation } from '../model/hospit.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HospitalisationService {
+
   public host:String="http://localhost:8087/api/v1";
   public host1:String="http://localhost:8087"
   public hospitalisation:string = "hospitalisation";
   public listHosp:string ="listHospitalisation";
   
-  constructor(private httpClient:HttpClient) {}
+  auth;
+
+  constructor(private httpClient:HttpClient,public authen:AuthentificationService ) {
+    this.auth=authen;
+  }
 
   updateHospitalisation(id,hospitalisation:Hospitalisation):Observable<Object>{
     debugger
-    return this.httpClient.put(`${this.host}/${this.hospitalisation}/${id}`,hospitalisation);
+    return this.httpClient.put(`${this.host}/${this.hospitalisation}/${id}`,hospitalisation,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
   }
 
   listHospitalisation():Observable<object>{
-    return this.httpClient.get(`${this.host}/${this.listHosp}`);
+    return this.httpClient.get(`${this.host}/${this.listHosp}`,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
   }
 
   getHospitalisation(url):Observable<object>{
@@ -29,10 +35,7 @@ export class HospitalisationService {
   }
 
   delete(id:number):Observable<Object>{
-    return this.httpClient.delete(`${this.host}/${this.hospitalisation}/${id}`);
-  }
- public getHopitalisation1(page:number,size:number){
-    return this.httpClient.get(this.host1+"/hospitalisations?page="+page+"&size="+size);
+    return this.httpClient.delete(`${this.host}/${this.hospitalisation}/${id}`,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
   }
 
 
@@ -45,7 +48,7 @@ export class HospitalisationService {
 
   public saveResource(data):Observable<any>{
     debugger
-    return this.httpClient.post(this.host+"/hospitalisation",data);
+    return this.httpClient.post(this.host+"/hospitalisation",data ,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
     //alert("ok")
     //return  this.httpClient.post(url,data);  saveResource
 
@@ -54,7 +57,7 @@ export class HospitalisationService {
 
   
   public getPageHospitalisation(page:number,size:number){
-    return this.httpClient.get(this.host+"/hospitalisations?page="+page+"&size="+size);
+    return this.httpClient.get(this.host+"/hospitalisations?page="+page+"&size="+size,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
     //hospitalisations?page="+page+"&size="+size
   }
    

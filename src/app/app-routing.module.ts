@@ -10,12 +10,15 @@ import { PathologieComponent } from './pathologie/pathologie.component';
 import { ListHospitalisationComponent } from './list-hospitalisation/list-hospitalisation.component';
 import { ListPersonnelComponent } from './list-personnel/list-personnel.component';
 import { MychartComponent } from './mychart/mychart.component';
+import { ListpathologieComponent } from './listpathologie/listpathologie.component';
+import {PageLoginComponent}from './page-login/page-login.component'
 
 const routes: Routes = [
+  {path:'login', component:PageLoginComponent},
    {path:'produit',component: ProduitComponent} ,
   {path:'new-product',component: NewProductComponent},
   //route par defaut 
-  {path:"",redirectTo:"/Produits",pathMatch:'full'},
+
   {path:'edit-product/:id',component:EditProductComponent},
   //chemin pour modifier hospitalisation par id
   {path:'hospitalisation/:id',component:HospitalisationComponent},
@@ -24,7 +27,10 @@ const routes: Routes = [
   {path:'pathologie',component:PathologieComponent},
   {path:'listHosp',component:ListHospitalisationComponent},
   {path:'listPersonne',component:ListPersonnelComponent},
-  {path:'MyChart',component:MychartComponent}
+  {path:'listPathologies',component:ListpathologieComponent},
+ 
+  {path:'MyChart',component:MychartComponent},
+  {path:'',redirectTo:'login',pathMatch:'full'}
 
 ];
 

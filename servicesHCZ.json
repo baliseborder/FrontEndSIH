@@ -1,0 +1,16 @@
+{
+    "Services": [
+        {
+            "nom": " Service Urgence"
+         
+          },
+          {
+            "nom": " Service Pediatrie"
+         
+          },
+                {
+            "nom": " Service Urologies"
+         
+          }
+   ]
+}
