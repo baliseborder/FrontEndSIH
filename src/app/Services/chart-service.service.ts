@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AuthentificationService } from '../authentification-service.service';
 
 export class StatHopitalisation {
   label: string;
@@ -10,7 +11,7 @@ export class StatHopitalisation {
 @Injectable({
   providedIn: 'root'
 })
-export class ChartServiceService {
+export class ChartServiceService implements OnInit{
   static getNbGuerris(Date: DateConstructor): number | number[] | import("chart.js").ChartPoint {
     throw new Error('Method not implemented.');
   }
@@ -20,13 +21,20 @@ export class ChartServiceService {
   public nbdeces:string ="ngDeces";
  public nbconsult:string="ngConsult";
  public nbReferes:string="ngReferer";
- public statHospitalisation = "getStatHospitalisation"
-  constructor( private httpClient:HttpClient) { 
-    
+ public statHospitalisation = "getStatHospitalisationDate";
+ auth;
+  constructor( private httpClient:HttpClient,public authen:AuthentificationService) { 
+    this.auth=authen;
+  }
+  ngOnInit(): void {
+ 
   }
 
-  getNbGuerris(date){
-    return this.httpClient.get(`${this.host}/${this.nbguerris}/${date}`);
+
+
+
+  getNbGuerris(dateDebutHosp){
+    return this.httpClient.get(`${this.host}/${this.nbguerris}/${dateDebutHosp}`);
   }
 
 
@@ -47,5 +55,21 @@ export class ChartServiceService {
   getStatHospitalisation(date){
     return this.httpClient.get<StatHopitalisation []>(`${this.host}/${this.statHospitalisation}/${date}`)
   }
+  getStatHospitalisationdate(){
+    return this.httpClient.get<StatHopitalisation []>(`${this.host}/${this.statHospitalisation}`,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })})
+  }
+  getServicesNames(){
+    return this.httpClient.get(`${this.host}`+'/listServicesByName',{headers: new HttpHeaders({'authorization': this.auth.jwtToken })})
+  
+
+
+  }
+  getServicesNamesTauxLit(nom:string){
+    return this.httpClient.get(`${this.host}`+'/tauxlit'+'/'+nom,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })})
+  
+
+
+  }
+
 
 }

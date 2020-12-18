@@ -10,6 +10,7 @@ import { Hospitalisation } from '../model/hospit.model';
 export class HospitalisationService {
 
   public host:String="http://localhost:8087/api/v1";
+  public host2:String="http://localhost:8087/api/v1/ListHospitalisation";
   public host1:String="http://localhost:8087"
   public hospitalisation:string = "hospitalisation";
   public listHosp:string ="listHospitalisation";
@@ -20,10 +21,36 @@ export class HospitalisationService {
     this.auth=authen;
   }
 
-  updateHospitalisation(id,hospitalisation:Hospitalisation):Observable<Object>{
+ updateHospitalisation(idHosp,hospitalisation:Hospitalisation):Observable<Object>{
     debugger
-    return this.httpClient.put(`${this.host}/${this.hospitalisation}/${id}`,hospitalisation,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
+    return this.httpClient.put(`${this.host}/${this.hospitalisation}/${idHosp}`,hospitalisation,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
   }
+
+  /*updateHospitalisation(id,hospitalisation:Hospitalisation):Observable<Object>{
+    debugger
+    return this.httpClient.put(`${this.host2}/${id}`,hospitalisation,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
+  }*/
+  public getResource(url):Observable<any>{
+    console.log(url);
+    return this.httpClient.get(url,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
+    //return  this.httpClient.post(url,data);  saveResource
+  }
+
+  /*
+   public getResource(url):Observable<any>{
+    return this.httpClient.get(url,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
+    //return  this.httpClient.post(url,data);  saveResource
+  }
+  
+  
+  
+  */
+  
+   public updateResource(url,data):Observable<any>{
+    return this.httpClient.put(url,data,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
+    //return  this.httpClient.post(url,data);  saveResource
+  }
+  
 
   listHospitalisation():Observable<object>{
     return this.httpClient.get(`${this.host}/${this.listHosp}`,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
@@ -59,6 +86,11 @@ export class HospitalisationService {
   public getPageHospitalisation(page:number,size:number){
     return this.httpClient.get(this.host+"/hospitalisations?page="+page+"&size="+size,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
     //hospitalisations?page="+page+"&size="+size
+  }
+  public getServicesNames(){
+    return this.httpClient.get(this.host+"/listServicesByName",{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
+   
+
   }
    
 }

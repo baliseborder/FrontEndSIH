@@ -15,7 +15,7 @@ export class EditProductComponent implements OnInit {
   public currentProduct:Product;
   private url: string;
 //injecter la route (router:Router) et la route actuelle (activatedRoute:ActivatedRoute)
-  constructor( private router:Router, private activatedRoute:ActivatedRoute,private catService:CatalogueService) { }
+ constructor( private router:Router, private activatedRoute:ActivatedRoute,private catService:CatalogueService) { }
 
   ngOnInit() {
     debugger

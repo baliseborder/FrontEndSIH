@@ -19,6 +19,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { ListpathologieComponent } from './listpathologie/listpathologie.component';
 import { PageLoginComponent } from './page-login/page-login.component';
 import { AuthentificationService } from './authentification-service.service';
+import { EditHospitalisationComponent } from './edit-hospitalisation/edit-hospitalisation.component';
+import { ServicesHOPComponent } from './services-hop/services-hop.component';
 
 
 //import { Hospitalisation } from './model/hospit.model';
@@ -38,6 +40,8 @@ import { AuthentificationService } from './authentification-service.service';
     MychartComponent,
     ListpathologieComponent,
     PageLoginComponent,
+    EditHospitalisationComponent,
+    ServicesHOPComponent,
     
   ],
   imports: [

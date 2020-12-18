@@ -13,6 +13,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HospitalisationComponent implements OnInit {
   public currentHospit:Hospitalisation = new Hospitalisation() ;
+  serviceNames;
+  servicesNames=[];
  /* public size:number=5;
 public currentPage:number=0;
 public totalPages:number;
@@ -30,6 +32,7 @@ public pages:Array<number>*/
 
   ngOnInit(): void {
     debugger
+    this.getServicesNames();
  
    // this.url=atob(this.activatedRoute.snapshot.params.id);
    // if(this.url != undefined){
@@ -61,11 +64,24 @@ public pages:Array<number>*/
     },err=>{
         console.log(err);
       })  
+      
     }
     onNewHospitalisation(){
       this.mode=1;
-      this.currentHospit
+      this.currentHospit= new Hospitalisation();
 
+
+    }
+    getServicesNames(){
+      this.hospitServices.getServicesNames().subscribe(
+        resp=>{
+          this.serviceNames=resp;
+          this.servicesNames=this.serviceNames;
+
+
+        }
+
+      )
     }
   
    /*

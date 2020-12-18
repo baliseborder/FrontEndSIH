@@ -31,6 +31,7 @@ public mode:number=1;
 
   }  
   onNewPesonne(){
+    this.currentPersonne =  new Personnel()
          this.mode=1;}
 
 }

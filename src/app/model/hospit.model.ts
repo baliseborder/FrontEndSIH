@@ -10,11 +10,13 @@ nombreLits : number;
 nombreConsul: number;
 dateDebutHosp: Date;
 dateFinHosp:Date;
+nombreMaladHosp:number;
+tauxMoyenneOccupationLit;
+dureeMoyenDesjrs;
 
 
 constructor(){
 	this.dataChrt=0;
-
 	this.idHosp = 0;
 	this.nomServices="";
 	this.nombreGuerris=0;

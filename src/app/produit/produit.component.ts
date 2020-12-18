@@ -83,8 +83,9 @@ private currentKeyword:String;
    onEditProduct(p){
      debugger
     let url=p._links.self.href;
+    console.log(url);
    // this.router.navigateByUrl("/edit-product/"+p.id) 
-   //on peut pas mettre dans url un parametre contient http, il fout donne une fonction base 64 de code pour faire on 
+   //on peut pas mettre dans url un parametre contient http, il faut donne une fonction base 64 de code pour faire on 
    //utilise une fonction btoa(url)
    this.router.navigateByUrl("/edit-product/"+btoa(url));
    }

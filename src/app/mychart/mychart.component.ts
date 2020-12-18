@@ -3,10 +3,12 @@ import { Router } from '@angular/router';
 import { ChartDataSets, ChartType } from 'chart.js';
 import { MultiDataSet, Label, Color } from 'ng2-charts';
 import { ChartServiceService, StatHopitalisation } from '../Services/chart-service.service';
-//===============
+import * as Highcharts from 'highcharts';
+import { error } from '@angular/compiler/src/util';
 
 //===============
-
+//===============
+declare var require: any;
 @Component({
   selector: 'app-mychart',
   templateUrl: './mychart.component.html',
@@ -17,7 +19,15 @@ export class MychartComponent implements OnInit {
  public nbGuerris;
         statHospistalisations: StatHopitalisation [];
  public nbdeces;
-;
+ public servicesNames
+ public tauxlitService;
+ public taxulitservices=[];
+ public servicename=[];
+
+
+ 
+
+
 
     //================================
    
@@ -25,47 +35,134 @@ export class MychartComponent implements OnInit {
     doughnutChartData;
     doughnutChartType: ChartType = 'doughnut';
    //=====================================================================
+   //====================+++++++++++++++++++++++++
+   public options4: any = {
+    Chart: {
+      type: 'area',
+      height: 250
+    },
+    title: {
+      text: 'Evolution  Hopital Cheikh Zayed'
+    },
+    credits: {
+      enabled: false
+    },
+    xAxis: {
+      categories: ['2014', '2015', '2016', '2017', '2018', '2019', '2020'],
+      tickmarkPlacement: 'on',
+      title: {
+          enabled: false
+      }
+  },
+    series: [{
+      name: 'Urgence',
+      data: [502, 635, 809, 947, 1402, 3634, 5268]
+  }, {
+      name: 'Pediatrie',
+      data: [163, 203, 276, 408, 547, 729, 628]
+  }, {
+      name: 'Maternite',
+      data: [18, 31, 54, 156, 339, 818, 1201]
+  }]
+  }
+
+   //+++++++++++++++++++++++++++++++++++++++++
 
  constructor( private chartServiceService: ChartServiceService,
     private router:Router) {
-      
+
+     
      }
+
+     getServiceNamesTauxLit(nom){
+       this.chartServiceService.getServicesNamesTauxLit(nom).subscribe(
+         resp=>{
+           this.tauxlitService=resp;
+           this.taxulitservices.push(this.tauxlitService);
+         
+
+
+         }
+       );
+    
+
+
+     }
+
+
+     getServicesNames(){
+       this.chartServiceService.getServicesNames().subscribe(Response=>{
+      this.servicesNames=Response;
+     
+  
+     for(let servicenom of this.servicesNames){
+       this.servicename.push(servicenom);
+       this.getServiceNamesTauxLit(servicenom);
+     }
+     console.log(this.taxulitservices);
+
+
+       },error=>{
+         console.log(error)
+       }
+
+
+       );
+
+
+    
+   
+
+
+    }
+
+
     date:Date;
    
   ngOnInit(): void {
+    this.getServicesNames();
     debugger
-      
-    this.chartServiceService.getStatHospitalisation('2020-11-01').subscribe(
-      data => {
-        //alert(data);
-        //this.nbGuerris = data;
-        console.log(data);
-        this.statHospistalisations = data;
-        this.doughnutChartLabels = this.statHospistalisations.map(s => s.label);
-        this.doughnutChartData = this.statHospistalisations.map(s => s.nbr) ;
-
-      },err=>{
-        console.log(err);
-      }
-    )
-     /* this.chartServiceService.getNbDeces('2019-09-12').subscribe(
-        data1 => {
-         // console.log(data1)
-          debugger
-          this.nbdeces =data1
-         // alert(this.nbdeces)
-        },err=>{
-           // alert('No')
-            console.log(err);
-          }
-        
-      )*/
-     
-     
-
+      this.ChartMA();
+   
      
  
   }
+ChartMA(){
+  this.chartServiceService.getStatHospitalisationdate().subscribe(
+
+    data => {
+      //alert(data);
+      //this.nbGuerris = data;
+      console.log(data);
+      this.statHospistalisations = data;
+      this.doughnutChartLabels = this.statHospistalisations.map(s => s.label);
+      this.doughnutChartData = this.statHospistalisations.map(s => s.nbr) ;
+      console.log(this.servicename)
+
+    },err=>{
+      console.log(err);
+    }
+  )
+   //+++++++++++++++
+  Highcharts.chart('container', this.options4);
+  //+++++++++++++++
+   /* this.chartServiceService.getNbDeces('2019-09-12').subscribe(
+      data1 => {
+       // console.log(data1)
+        debugger
+        this.nbdeces =data1
+       // alert(this.nbdeces)
+      },err=>{
+         // alert('No')
+          console.log(err);
+        }
+      
+    )*/
+   
+   
+
+}
+
 //methode pour recuperer le nbdesec
 //chartReady = true;
 
@@ -89,7 +186,7 @@ export class MychartComponent implements OnInit {
    this.doughnutChartType,this.ChartType = 'doughnut';
   }*/
  
-  
+
 
 
  initOpts = {
@@ -112,10 +209,11 @@ export class MychartComponent implements OnInit {
       bottom: '3%',
       containLabel: true
     },
+    
     xAxis: [
       {
         type: 'category',
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        data: this.servicename,
         axisTick: {
           alignWithLabel: true
         }
@@ -128,7 +226,7 @@ export class MychartComponent implements OnInit {
       name: 'Counters',
       type: 'bar',
       barWidth: '60%',
-      data: [10, 52, 200, 334, 390, 330, 220]
+      data: this.taxulitservices
     }]
   };
 //===========================================================
@@ -152,7 +250,7 @@ export class MychartComponent implements OnInit {
     legend: {
       x: 'center',
       y: 'bottom',
-      data: ['Urologie', 'Urgence', 'Pediatrie', 'Chirurgie', 'Genyco', 'Orl', 'MedecinIntern', 'Pathologies']
+      data: ['Urologie', 'Urgence', 'Pediatrie', 'Chirurgie', 'Genyco', 'Orl', 'MedecinIntern', 'Pediatrie']
     },
     calculable: true,
     series: [
@@ -202,7 +300,7 @@ export class MychartComponent implements OnInit {
       {
         type: 'category',
         boundaryGap: false,
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        data: ['Lun', 'Mard', 'Merec', 'Jeu', 'Vend', 'Sam', 'Dim']
       }
     ],
     yAxis: [
@@ -284,10 +382,10 @@ export class MychartComponent implements OnInit {
 
  lineChartData: ChartDataSets[] = [
   // { data: [this.chartServiceService.getNbGuerris(Date)], label: 'NOMBRE GUERRIS' },
-      { data: [11, 11, 11,78, 108, 77, 75,85, 72, 11, 11, 11], label: 'NOMBRE Ref' },
-        { data: [85, 72, 78, 108, 77, 75,85, 72, 78, 75, 77, 75], label: 'NOMBRE GUERRIS' },
-        { data: [85, 72, 78, 75, 77, 75,78, 108, 77, 75,85, 72], label: 'NOMBRE Deces' },
-        { data: [171, 155, 66, 161, 100, 161,152,111,178,125,158], label: 'NOMBRE Hosp' },
+      { data: [11, 11, 11,78, 108, 77, 75,85, 72, 11, 11, 11], label: 'Taux de Ref' },
+        { data: [85, 72, 78, 108, 77, 75,85, 105, 78, 75, 125, 100], label: 'Taux de Hosp' },
+        { data: [85, 72, 78, 75, 77, 75,78, 108, 77, 75,85, 72], label: 'Taux de  Deces' },
+        { data: [171, 155, 66, 161, 100, 161,152,111,178,125,158], label: 'Taux de GUERRIS' },
 
 
       ];

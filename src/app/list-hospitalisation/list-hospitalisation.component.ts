@@ -62,16 +62,38 @@ public pages:Array<number>
     debugger
      this.hospitalisationService.delete(idHosp).subscribe(
         data => {
-          this.listhospitalisation();
+          debugger
+       this.listhospitalisation();
+      //  alert("vous voulez supprimer  ")
+
         }
      )
-     alert("la Suppression c'est fait avec succes  ")
+    alert("la Suppression c'est fait avec succes  ")
 
   }
   onUpdate(id){
     debugger
-    let url = "http://localhost:8087/api/v1/hospitalisation/"+id;
-    this.router.navigateByUrl("/hospitalisation/"+btoa(url));
+    let url1 = "http://localhost:8087/api/v1/hospitalisation/"+id;
+    this.router.navigateByUrl("/hospitalisation/"+btoa(url1));
+
+  }
+
+
+  onEditHosp(h){
+    
+    debugger
+    let url2="http://localhost:8087/api/v1/hospitalisation/"+h.idHosp;
+
+  //let url1=h._links.self.href;
+  
+  console.log(url2);
+  this.router.navigateByUrl("/editHospi/"+btoa(url2))
+ // console.log(url1);
+  /*
+//let url=p._links.self.href;
+   //on peut pas mettre dans url un parametre contient http, il faut donnes une fonction base 64 de code pour fair on 
+   //utilise une fonction btoa(url)
+   this.router.navigateByUrl("/editHospi/"+btoa(url1));*/
   }
 
  /* chercherHospitalisation(){
@@ -119,7 +141,7 @@ public pages:Array<number>
       }*/
 
 //public nbguerris: [];
-getNbGuerris;
+//getNbGuerris;
 
   /*    lineChartData: ChartDataSets[] = [
   // { data: [this.chartServiceService.getNbGuerris(Date)], label: 'NOMBRE GUERRIS' },

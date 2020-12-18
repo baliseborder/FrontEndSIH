@@ -1,0 +1,45 @@
+<div class="Container">
+    <div class="panel panel-default">
+        <div class="panel-heading">Edition du Rapport Hospitalisation</div>
+        <div  class="panel panel-body" *ngIf="currentHospit">
+
+            <form #f="ngForm" (ngSubmit)="onUpdateHospit(f.value)" >
+
+                <div class="form-group">
+                    <label class="control-label">Nombre de Guerris</label>
+                    <input class="form-control" type="number" name="nombreGuerris" [(ngModel)]="currentHospit.nombreGuerris">  
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nombre Referes</label>
+                    <input class="form-control" type="number" name="nombreReferes"  [(ngModel)]="currentHospit.nombreReferes">  
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nombre Deces</label>
+                    <input class="form-control" type="text" name="nombreDeces"  [(ngModel)]="currentHospit.nombreDeces">  
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Nombre Chambre</label>
+                    <input class="form-control" type="text" name="nombreChambre"  [(ngModel)]="currentHospit.nombreChambre">  
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Nombre Lits</label>
+                    <input class="form-control" type="number" name="nombreLits"  [(ngModel)]="currentHospit.nombreLits">  
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">nombre Consultation</label>
+                    <input class="form-control" type="number" name="nombreConsul"  [(ngModel)]="currentHospit.nombreConsul">  
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Date Debut </label>
+                    <input class="form-control" type="date" name="dateDebutHosp"  [(ngModel)]="currentHospit.dateDebutHosp">  
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Date Fin</label>
+                    <input class="form-control" type="date" name="dateFinHosp"  [(ngModel)]="currentHospit.dateFinHosp">  
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Edit</button>
+               </div>

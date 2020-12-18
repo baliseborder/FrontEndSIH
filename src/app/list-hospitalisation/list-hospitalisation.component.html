@@ -30,6 +30,7 @@
     
 
     <tbody>
+      <!--<tr *ngFor="let h of hospitalisations._embedded.hospitalisations"></tr>  -->   
       <tr *ngFor= "let h of hospitalisations">
         <th scope="row">{{h.idHosp}}</th>
         <td>{{h.nombreGuerris}}</td>
@@ -43,6 +44,7 @@
         <td>{{h.nomServices}}</td>
         <td><button (click)="onDelete(h.idHosp)" class="btn btn-danger">Delete</button></td>
         <td><button (click)="onUpdate(h.idHosp)" class="btn btn-success">Update</button></td>
+        <td><button (click)="onEditHosp(h)" class="btn btn-success">Edit</button></td>
         
         
     </tbody>

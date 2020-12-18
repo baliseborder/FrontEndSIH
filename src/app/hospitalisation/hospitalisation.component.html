@@ -17,6 +17,41 @@
                                                         </select>
                                                     </label>
                                                 </div>-->
+
+                                                <div class="form-group">
+                                                    <label class="control-label">Nom Services </label>
+                                                   <!-- <input class="form-control" type="text" name="nomServices"  [(ngModel)]="currentHospit.nomServices">  
+                                                   --><select name="nomServices"  [(ngModel)]="currentHospit.nomServices">
+                                                        <option *ngFor="let s of servicesNames" >{{s}} </option>
+                                                    </select>
+                                                </div>
+
+
+                                            <div class="form-group">
+                                            
+                                                <label class="control-label">Date Debut </label>
+                                                <input class="form-control" type="date" name="dateDebutHosp"  [(ngModel)]="currentHospit.dateDebutHosp">  
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Date Fin</label>
+                                                <input class="form-control" type="date" name="dateFinHosp"  [(ngModel)]="currentHospit.dateFinHosp">  
+                                            </div>
+
+
+
+
+
+
+                                                
+
+                                                <div class="form-group">
+                                                    <label class="control-label">Nombre Jours Hosp </label>
+                                                    <input class="form-control" type="text" name="nombreJrsHosp"  [(ngModel)]="currentHospit.nombreJrsHosp">  
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Nombre Malades Hosp </label>
+                                                    <input class="form-control" type="text" name="nombreMaladHosp"  [(ngModel)]="currentHospit.nombreMaladHosp">  
+                                                </div>
                                             
                                                 <div class="form-group">
                                                     <label class="control-label">Nombre de Guerris</label>
@@ -45,39 +80,13 @@
                                                     <label class="control-label">nombre Consultation</label>
                                                     <input class="form-control" type="number" name="nombreConsul"  [(ngModel)]="currentHospit.nombreConsul">  
                                                 </div>
-                                                <div class="form-group">
-                                                    <label class="control-label">Date Debut </label>
-                                                    <input class="form-control" type="date" name="dateDebutHosp"  [(ngModel)]="currentHospit.dateDebutHosp">  
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label">Date Fin</label>
-                                                    <input class="form-control" type="date" name="dateFinHosp"  [(ngModel)]="currentHospit.dateFinHosp">  
-                                                </div>
-
-                                      
-                                             <!--   <div class="form-group">
-                                                     <select class="default">
-                                                        <option selected>NOM</option>
-                                                        <option value="1">One</option>
-                                                        <option value="2">Two</option>
-                                                        <option value="3">Three</option>
-                                                        </select>
-                                             </div>  -->
-                                             <div class="form-group">
-                                                <label class="control-label">Nom Services </label>
-                                                <input class="form-control" type="text" name="nomServices"  [(ngModel)]="currentHospit.nomServices">  
-                                            </div>  
-                                            <div class="form-group">
-                                                <label class="control-label">Nom Services </label>
-                                                <select class="control-label">
-                                                        <option ng-repeat="service in servicesHCZ">{{services.nom}}</option>
-                                                </select>
-                                            </div>
-                                                    
+                                           
 
                                             <button class="btn btn-success"  type="submit">Ajouter</button>                                          
                                            </form>
                             </div>
+
+
                             <div class="panel-body" *ngIf="mode==2">
                                         <button class="btn btn-success"  (click)="onNewHospitalisation()">Nouveau Rapport</button>
                                         <div class="form-group">
@@ -86,6 +95,9 @@
                                         <div class="form-group">
                                             <label >Nom Services :</label><label>{{currentHospit.nomServices}}</label>
                                        </div>
+                                       <div class="form-group">
+                                        <label >Nombre Malades Hosp :</label><label>{{currentHospit.nombreMaladHosp}}</label>
+                                   </div>
                             
                                         <div class="form-group">
                                             <label >nombre Guerris:</label><label>{{currentHospit.nombreGuerris}}</label>
@@ -113,6 +125,15 @@
                                     <div class="form-group">
                                             <label >Date Fin :</label><label>{{currentHospit.dateFinHosp}}</label>
                                     </div> 
+                                    <div class="form-group">
+                                        <label >Taux Moyenne Occupation Lits :</label><label>{{currentHospit.tauxMoyenneOccupationLit}}</label>
+                                </div>
+
+                            <div class="form-group">
+                                <label >Durée Moyenne de séjours :</label><label>{{currentHospit.dureeMoyenDesjrs}}</label>
+                        </div>
+
+                                    
 
                                     <!-- <div class="form-group">
                                         

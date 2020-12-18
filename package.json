@@ -24,6 +24,7 @@
     "bootstrap": "^3.4.1",
     "chart.js": "^2.9.3",
     "echarts": "^4.9.0",
+    "highcharts": "^8.2.2",
     "jquery": "^3.5.1",
     "ng2-charts": "^2.4.2",
     "ngx-echarts": "^5.1.2",

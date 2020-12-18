@@ -11,6 +11,7 @@ import { AuthentificationService } from '../authentification-service.service';
 export class PersonnelService {
 
   public host:String="http://localhost:8087";
+  public host1:String="http://localhost:8087/api/v1";
   public personnel:string = "personnel";
 public listPersonne:string="listPersonne"
  auth: any;
@@ -20,20 +21,20 @@ public listPersonne:string="listPersonne"
    }
 //liste des personne ls
   listPersonnes():Observable<object>{
-    return this.httpClient.get(`${this.host}/${this.listPersonne}`,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
+    return this.httpClient.get(`${this.host1}/${this.listPersonne}`,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
   }
 
 
-   public saveResource(data):Observable<any>{
+   public saveResource(personne):Observable<any>{
     debugger
-    return this.httpClient.post(this.host+"/personnes",data,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
+    return this.httpClient.post(this.host1+"/AjoutPersonne",personne,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
     //return  this.httpClient.post(url,data);  saveResource
     
 
   }
 
 
-  delete(id:number):Observable<Object>{
-    return this.httpClient.delete(`${this.host}/${this.personnel}/${id}`,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
+  delete(idPersonne:number):Observable<Object>{
+    return this.httpClient.delete(`${this.host1}/${this.personnel}/${idPersonne}`,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
   }
 }

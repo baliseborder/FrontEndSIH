@@ -12,6 +12,8 @@ import { ListPersonnelComponent } from './list-personnel/list-personnel.componen
 import { MychartComponent } from './mychart/mychart.component';
 import { ListpathologieComponent } from './listpathologie/listpathologie.component';
 import {PageLoginComponent}from './page-login/page-login.component'
+import { EditHospitalisationComponent } from './edit-hospitalisation/edit-hospitalisation.component';
+import { ServicesHOPComponent } from './services-hop/services-hop.component';
 
 const routes: Routes = [
   {path:'login', component:PageLoginComponent},
@@ -28,6 +30,8 @@ const routes: Routes = [
   {path:'listHosp',component:ListHospitalisationComponent},
   {path:'listPersonne',component:ListPersonnelComponent},
   {path:'listPathologies',component:ListpathologieComponent},
+  {path:'editHospi/:id',component:EditHospitalisationComponent},
+  {path:'servicesHop',component:ServicesHOPComponent},
  
   {path:'MyChart',component:MychartComponent},
   {path:'',redirectTo:'login',pathMatch:'full'}
