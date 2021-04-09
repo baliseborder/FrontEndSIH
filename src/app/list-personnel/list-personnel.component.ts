@@ -10,7 +10,7 @@ import { PersonnelService } from '../Services/personnel.service';
 })
 export class ListPersonnelComponent implements OnInit {
   personne;
-  constructor( private personnelService:PersonnelService ,private route:Router) { }
+  constructor( private personnelService:PersonnelService ,private router:Router) { }
 
   ngOnInit(): void {
    this.listPersonne()
@@ -39,6 +39,21 @@ export class ListPersonnelComponent implements OnInit {
 
   }
 
+/* onEditHosp(h){    
+    debugger
+    let url2="http://localhost:8087/api/v1/hospitalisation/"+h.idHosp;
+      console.log(url2);
+      this.router.navigateByUrl("/editHospi/"+btoa(url2))
+  }*/
+
  
+   //onEditService(s)
+   onEditPersonne(pr){    
+    debugger
+    let url2="http://localhost:8087/api/v1/updatPersonne/"+pr.idPersonne;
+      console.log(url2);
+    this.router.navigateByUrl("/editPersonne/"+btoa(url2))
+  }
+  
 
 }

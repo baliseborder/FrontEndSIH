@@ -1,0 +1,93 @@
+<div  class="container">
+        <div class="col-md-9 col-sm-6 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Nouveau Utilisateur </div>            
+                            <div class="panel-body" >
+                                            <form  (ngSubmit)="onSaveGestionUser()" > 
+                                                <div class="alert alert-success"  *ngIf="mode==1">
+                                                    <h3>{{this.message}}</h3>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Nom</label>
+                                                    <input class="form-control" type="text" name="nom"  [(ngModel)]="modeluser.nom" >
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">UserName </label>
+                                                    <input class="form-control" type="text" name="username"  [(ngModel)]="modeluser.username">  
+                                                </div>
+                                            
+                                                <div class="form-group">
+                                                    <label class="control-label">pwd</label>
+                                                    <input class="form-control" type="password" name="username" [(ngModel)]="modeluser.pwd">  
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">confirmer</label>
+                                                    <input class="form-control" type="password" name="confirmer" [(ngModel)]="modeluser.confirmer">  
+                                                </div>
+
+                                               <div class="form-group">
+                                                   <label class="control-label">Role </label>
+                                                   <select name="roles"  [(ngModel)]="modeluser.roles" *ngIf="rolesNames">
+                                                       <option value="" hidden="hidden"></option>
+                                                        <option *ngFor="let s of rolesNames" >{{s}} </option>
+                                                    </select>
+                                                </div>
+                                      
+                                      
+                                           
+                                        
+
+                                            
+                                
+                                                                                     
+                                                <button class="btn btn-success"  type="submit" >Valider</button>                                          
+                                           </form>
+                                </div>
+                            <!--<div class="panel-body" *ngIf="mode==2">
+                                        <button class="btn btn-success"  (click)="onNewHospitalisation()">Nouveau Rapport</button>
+                                        <div class="form-group">
+                                            <label >ID:</label><label>{{currentHospit.idHosp}}</label>
+                                        </div>
+                                       <div class="form-group">
+                                        <label >Nombre Malades Hosp :</label><label>{{currentHospit.nombreMaladHosp}}</label>
+                                   </div>
+                            
+                                        <div class="form-group">
+                                            <label >nombre Guerris:</label><label>{{currentHospit.nombreGuerris}}</label>
+                                        </div>
+                            
+                                        <div class="form-group">
+                                            <label>Nombre Referes:</label><label>{{currentHospit.nombreReferes}}</label>
+                                        </div>
+                            
+                                        <div class="form-group">
+                                            <label >nombre Deces:</label><label>{{currentHospit.nombreDeces}}</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label >nombre Lits :</label><label>{{currentHospit.nombreChambre}}</label>
+                                        </div >           
+                                    <div class="form-group">
+                                        <label >nombreChambre :</label><label>{{currentHospit.nombreChambre}}</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >nombre Consultation :</label><label>{{currentHospit.nombreConsul}}</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Date Debut :</label><label>{{currentHospit.dateDebutHosp}}</label>
+                                        </div>
+                                    <div class="form-group">
+                                            <label >Date Fin :</label><label>{{currentHospit.dateFinHosp}}</label>
+                                    </div> 
+                                    <div class="form-group">
+                                        <label >Taux Moyenne Occupation Lits :</label><label>{{currentHospit.tauxMoyenneOccupationLit}}</label>
+                                </div>
+
+                            <div class="form-group">
+                                <label >Durée Moyenne de séjours :</label><label>{{currentHospit.dureeMoyenDesjrs}}</label>
+                        </div>
+                            </div>-->
+            </div>
+     </div>
+</div>
+
+

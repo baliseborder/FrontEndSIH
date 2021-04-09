@@ -1,12 +1,14 @@
 <nav class="navbar navbar-inverse" *ngIf="auth.isAuthentifier()==true">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a href=""><img src="../assets/logo.png"   width="50" height="45"></a>
     </div>
     <ul class="nav navbar-nav">
     <!--<li class="active"><a routerLink="/Produits">Home</a></li>-->
-    <li  class="active"><a routerLink="/MyChart">Table de Bord</a></li>
-                      <li class="dropdown">
+    <li class="active"><a routerLink="/home" class="glyphicon glyphicon-home"> Acueill</a><li></li>
+    <li  class="active" *ngIf="auth.isAdmin()"><a routerLink="/MyChart"><span class="glyphicon glyphicon-dashboard"></span> Tableau de Bord</a></li>
+                     
+    <i class="bi bi-bar-chart-steps"></i>
+  <!-- <li class="dropdown">
                                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Produit
                                       <span class="caret"></span>
                                     
@@ -15,22 +17,25 @@
                                         <li><a routerLink="/produit">Chercher</a></li>
                                         <li><a routerLink="/new-product">Ajouter </a></li>
                                       </ul>
-                                          </li> 
+                                          </li>  -->
+ 
+
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hospitalisation
-        <span class="caret"></span></a>
+        <span class="caret"></span></a>   
         <ul class="dropdown-menu">
-              <li><a routerLink="/hospitalisation">Ajouter </a></li>
-              <li><a routerLink="/listHosp">List</a></li>
+              <li><a routerLink="/hospitalisation" class="glyphicon glyphicon-plus"> Ajouter </a></li>
+              <li><a routerLink="/listHosp" class="glyphicon glyphicon-th-list"> List</a></li>
         </ul>
       </li>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Services
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-              <li><a routerLink="/servicesHop">Ajouter </a></li>
-              <li><a routerLink="#">List</a></li>
+              <li><a routerLink="/servicesHop"   class="glyphicon glyphicon-plus">  Ajouter </a></li>
+              <li><a routerLink="/listServices"  class="glyphicon glyphicon-th-list">  List</a></li>
         </ul>
+
       </li>
 
 
@@ -41,8 +46,8 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Personnels
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a routerLink="/personnel">Ajouter </a></li>
-          <li><a routerLink="/listPersonne">List </a></li>
+          <li><a routerLink="/personnel"  class="glyphicon glyphicon-plus" >  Ajouter </a></li>
+          <li><a routerLink="/listPersonne"  class="glyphicon glyphicon-th-list">  List </a></li>
         </ul>
       </li>
 
@@ -51,8 +56,8 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Pathologies
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-              <li><a routerLink="/pathologie">Ajouter </a></li>
-              <li><a routerLink="/listPathologies">List </a></li>
+              <li><a routerLink="/pathologie" class="glyphicon glyphicon-plus">  Ajouter </a></li>
+              <li><a routerLink="/listPatho"  class="glyphicon glyphicon-th-list">  List </a></li>
 
         </ul>
       </li>
@@ -69,20 +74,23 @@
         </ul>
       </li>-->
     </ul>
-
-    <!--<li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Gyneco-Logie
-      <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-            <li><a routerLink="/hospitalisation">Ajouter </a></li>
-            <li><a routerLink="/listHosp">List</a></li>
-      </ul>
-    </li>-->
-
-
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Utilisateur</a></li>
-      <li><a (click)="logout()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+     
+      <li class="dropdown">        
+        <a class="dropdown-toggle" *ngIf="auth.isAdmin()" data-toggle="dropdown" href="#"> <span class="glyphicon glyphicon-user"></span> Gestion Utilisateur
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+              <li><a routerLink="/GestionUser" class="glyphicon glyphicon-plus">  Ajouter </a></li>
+             <!-- <li><a routerLink=""><span class="glyphicon glyphicon-user"></span> Utilisateur</a></li>
+        -->   <li><a routerLink="/listPatho"  class="glyphicon glyphicon-th-list">  List </a></li>
+
+        </ul>
+      </li>
+      
+      <li><a><span class="glyphicon glyphicon-log-user"></span> {{auth.username}}</a></li>
+
+ 
+      <li><a (click)="logout()"><span class="glyphicon glyphicon-log-in"></span> Deconnecter</a></li>
 
     </ul>
  </div>

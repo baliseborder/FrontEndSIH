@@ -1,5 +1,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <!--<p>mychart works!</p>
 <div class="row">
   <div class="col-sm">col-sm</div>
@@ -46,108 +47,178 @@
 
 
 <!------------------------------------------------------------>
- <div class="container">
-  <div class="panel panel-primary" style="width: 100%;">
-      <div class="panel-heading">TABLE DEBORD</div>
-      <div class="panel-body">
-       
-          <div class="row">
-
-            <div class="col-md-6" >
-              <div class="panel panel-success">
-                <div class="panel-heading">Taux ..</div>
-                  <div class="panel-body">
-                      <div class="chart-wrapper" style="width: 100%; height: 50%;">
-                        <canvas baseChart 
-                        [datasets]="lineChartData" 
-                        [labels]="lineChartLabels" 
-                        [options]="lineChartOptions"
-                        [colors]="lineChartColors" 
-                        [legend]="lineChartLegend" 
-                        [chartType]="lineChartType" 
-                        [plugins]="lineChartPlugins">
-                  </canvas>
-                    </div>
-                
-                   </div>
-               </div>
-            </div>
-
-              <div class="col-md-6">
-              <div class="panel panel-warning">
-                <div class="panel-heading">Diagramme Hospitalisation</div>
-                  <div class="panel-body">
-                    <canvas baseChart *ngIf="doughnutChartData"
-                        [data]="doughnutChartData"
-                        [labels]="doughnutChartLabels"
-                        [chartType]="doughnutChartType">
-                    </canvas> 
-
-                    <!--    
-                      <canvas baseChart 
-                        [data]="doughnutChartData"
-                        [labels]="doughnutChartLabels"
-                        [chartType]="doughnutChartType">
-                    </canvas> 
-                    -->
-                  </div>
-               </div>
-            </div>
+ <div class="container-fluid">
+          <div class="panel panel-primary" style="width: 100%;">
+                    <div class="panel-heading">TABLEAU DE BORD</div>
+                    <div class="panel-body">  
+                      
+                      <div class="col-md-12">
+                        <div class="panel panel-primary">
+                          <div class="panel-heading">Statistique Par Annes </div>
+                            <div class="panel-body">
+                              <div class="form-group">
+                               <label class="control-label">Annee </label>
+                                  <!-- (change)="chercher($event.target.value)" selectionnes par  evenement liste deroulante   ngFor permet des parcourir     -->
+                                 <select   [(ngModel)]="annes" (change)="DiagrammeNbrGerie($event.target.value)" >
+                                    <option  hidden>Choisir une année</option>
+                                    <option *ngFor="let s of TousAnnes"   (onclick)="DiagrammeNbrGerie(annes)">{{s}} </option>
+                                  </select>
+                            </div>
+                             
 
 
-
-
-
-
-            <!--<div class="col-md-4">
-              <div class="panel panel-primary">
-                <div class="panel-heading">Panel 1</div>
-                  <div class="panel-body">
-                    <echarts [initOpts]="initOpts" [options]="options"></echarts>
-                   </div>
-               </div>
-            </div>-->
-            <div class="col-md-8">
-              <div class="panel panel-primary">
-                <div class="panel-heading">Diagramme Presente l'evolution HCZ  selon les services </div>
-                  <div class="panel-body">
-                    
-                    <p>HCZ</p>
-
-                      <div id="container"></div>  
-                   </div>
-               </div> 
-            </div> <div class="col-md-4">
-              <div class="panel panel-primary">
-                <div class="panel-heading">Diagramme d'ocuppation de lits selon les services</div>
-                  <div class="panel-body">
-                    <echarts [initOpts]="initOpts" [options]="options"></echarts>
-                  </div>
-               </div> 
-            </div>
-
-          </div>    
-          <div class="row">
-          
-            <div class="col-md-6">
-              <div class="panel panel-primary">
-                <div class="panel-heading">Diagramme d'ocuppation de lits selon les services                 </div>
-                  <div class="panel-body">
-                 <div echarts [options]="options2" [loading]="isLoading" theme="macarons" class="demo-chart"></div>                                                
-                 </div>
-               </div> 
-            </div>
-            <div class="col-md-6">
-              <div class="panel panel-primary">
-                <div class="panel-heading">Diagramme Consultation</div>
-                  <div class="panel-body">
-                    <div echarts [options]="options5" [theme]="theme" class="demo-chart"></div>                   </div>
-               </div> 
-            </div>
-          </div>   
-      </div>
-  </div>
+<!--  DEBUT  Diagramme Nombre de Gerires -->
+<div class="col-md-3">
+<div class="panel panel-primary">
+<div class="panel-heading">Diagramme Nombre des Guéris</div>    
+<div class="panel-body">
+<canvas id="pie-chart" width="220" height="150" *ngIf="doughnutChartData1!=undefined"></canvas>
 </div>
+</div> 
+</div>
+<!--  FIN  Diagramme Nombre de Gerires-->
+<!--  DEBUT  Diagramme Nombre Decces-->
+<div class="col-md-3">
+<div class="panel panel-primary">
+<div class="panel-heading">Diagramme Nombre des  Décès </div>    
+<div class="panel-body">
+<canvas id="pie-chart1" width="220" height="150" *ngIf="doughnutChartData2!=undefined"></canvas>
+</div>
+</div> 
+</div>
+<!--  FIN  Diagramme Nombre Decces -->
+<!--  DEBUT  Diagramme Nombre de Medecin-->
+<div class="col-md-3">
+<div class="panel panel-primary">
+<div class="panel-heading">Diagramme Des Consultation  </div>    
+<div class="panel-body">
+<canvas id="pie-chart2" width="220" height="150" *ngIf="doughnutChartData3!=undefined"></canvas>
+</div>
+</div> 
+</div>
+<!--  FIN  Diagramme d'ocuppation de lits selon les services -->
+
+<!--  DEBUT  Diagramme Nombre -->
+<div class="col-md-3">
+<div class="panel panel-primary">
+<div class="panel-heading">Diagramme Nombre de Réfers</div>    
+<div class="panel-body">
+<canvas id="pie-chart3" width="220" height="150" *ngIf="doughnutChartData4!=undefined"></canvas>
+</div>
+</div> 
+</div>
+<!--  FIN  Diagramme d'ocuppation de lits selon les services -->
+</div>
+</div>
+</div>
+
+
+
+
+
+                                            <!--  DEBUT  Diagramme d'ocuppation de lits selon les services-->
+                                            <div class="col-md-12">
+                                              <div class="panel panel-primary">
+                                                <div class="panel-heading">Diagramme d'ocuppation des lits selon les services</div>
+                                                  <div class="panel-body">
+                                                    <echarts [initOpts]="initOpts" [options]="options" ></echarts>
+                                                  </div>
+                                              </div> 
+                                            </div>
+                                           <!--  FIN  Diagramme d'ocuppation de lits selon les services -->
+
+
+
+
+
+
+
+                            <div class="row">
+                                            <!-- DEBUT Diagramme Hospitalisation-->
+                                              <div class="col-md-12">
+                                              <div class="panel panel-warning" >
+                                                <div class="panel-heading" > Statistique En temps Réels </div>
+                                                  <div class="panel-body">
+                                                    <canvas baseChart *ngIf="doughnutChartData"
+                                                        [data]="doughnutChartData"
+                                                        [labels]="doughnutChartLabels"
+                                                        [chartType]="doughnutChartType">
+                                                    </canvas> 
+                                                  </div>
+                                              </div>
+                                            </div>
+                                            <!--    FIN Diagramme Hospitalisation-->
+                                                      <!--<div class="col-md-4">
+                                                            <div class="panel panel-primary">
+                                                              <div class="panel-heading">Diagramme Presente l'evolution HCZ  selon les services </div>
+                                                                <div class="panel-body">
+                                                                  
+                                                                  <p>HCZ</p>
+
+                                                                    <div id="container"></div>  
+                                                                </div>
+                                                            </div> 
+                                                          </div>-->
+                                                          <!--  Debut -->
+
+                                                  <!-- <div class="chartjs-container">
+                                                  <canvas baseChart 
+                                                      [datasets3]="barChartData3" 
+                                                      [labels3]="barChartLabels3" 
+                                                      [options3]="barChartOptions3"
+                                                      [plugins3]="barChartPlugins3" 
+                                                      [legend3]="barChartLegend3" 
+                                                      [chartType3]="barChartType3">
+                                                  </canvas>
+                                              </div>-->
+                                                          <!--   Fin -->
+                                                          
+                                            
+
+
+
+
+
+
+
+
+                                             
+                                    <!--     DEBUT  Diagramme D'Hospitalisation selon les services-->         
+                                          <!--  <div class="col-md-6">
+                                              <div class="panel panel-primary">
+                                                <div class="panel-heading">Diagramme D'Hospitalisation selon les services  </div>
+                                                  <div class="panel-body">
+                                                    <div class="form-group">
+                                                      <label class="control-label">Annee </label>
+                                                      <select   [(ngModel)]="annes" (change)="chercher($event.target.value)"  >
+                                                        <option  hidden>Choisir une annee</option>
+                                                        <option *ngFor="let s of TousAnnes"   (onclick)="chercher(anne)">{{s}} </option>
+                                                      </select>
+                                                  </div>
+                                                <div echarts [options]="options2" [loading]="isLoading" theme="macarons" class="demo-chart"></div>                                                
+                                                </div>
+                                              </div>
+                                              </div>-->
+                                    <!--  FIN  Diagramme D'Hospitalisation selon les services -->
+                                        <!-- DEBUT -->
+                                           <!-- <div class="col-md-6">
+                                              <div class="panel panel-primary">
+                                                <div class="panel-heading">Diagramme Consultation</div>
+                                                  <div class="panel-body">
+                                                    <div echarts [options]="options5" class="demo-chart"></div>
+
+                                                  </div>
+                                              </div> 
+                                            </div> -->
+                                        <!--     FIN -->
+
+
+
+                       </div>
+                    </div>  
+                  </div>        
+          </div>
+
 <!--=============================================-->
 <!--
 <div class="row">
@@ -177,3 +248,53 @@
     [stroke]="chartOptions.stroke"
   ></apx-chart>
 </div>-->
+
+<!-- 
+
+
+new Chart(document.getElementById("pie-chart"), {
+    type: 'pie',
+    data: {
+      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+      datasets: [{
+        label: "Population (millions)",
+        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+        data: [2478,5267,734,784,433]
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Predicted world population (millions) in 2050'
+      }
+    }
+});
+
+-->
+
+
+
+<!--  
+
+                                            <div class="col-md-6" >
+                                                    <div class="panel panel-success">
+                                                      <div class="panel-heading">Diagramme Evolution </div>
+                                                        <div class="panel-body">
+                                                            <div class="chart-wrapper" style="width: 100%; height: 50%;">
+                                                              <canvas baseChart 
+                                                                [datasets]="lineChartData" 
+                                                                [labels]="lineChartLabels" 
+                                                                [options]="lineChartOptions"
+                                                                [colors]="lineChartColors" 
+                                                                [legend]="lineChartLegend" 
+                                                                [chartType]="lineChartType" 
+                                                                [plugins]="lineChartPlugins">
+                                                              </canvas>
+                                                          </div>
+                                                      
+                                                        </div>
+                                                      </div>
+                                              </div>
+
+
+-->

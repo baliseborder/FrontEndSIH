@@ -23,7 +23,7 @@ private currentKeyword:String;
   constructor(private catService:CatalogueService, private router:Router){ }
 
   ngOnInit(): void {}
-      
+ //pagination ===================================================================     
     onGetProduct(){
       this.catService.getProducts(this.currentPage,this.size)
       //subscribe c a d j attend si y de donnes arrive 
@@ -32,13 +32,9 @@ private currentKeyword:String;
         this.totalPages=data["page"].totalPages;
         this.pages=new Array<number>(this.totalPages)
       },err=>{
-        console.log(err)
-  
-      })
-         
-      }
-
-        
+        console.log(err)  
+      })         
+      }        
       onPageProduct(i){
         this.currentPage=i;
         //this.onGetProduct();
@@ -50,20 +46,18 @@ private currentKeyword:String;
        this.chercherProduits();
     }
 
-
       chercherProduits(){
-        this.catService.getProductsByKeyword(this.currentKeyword,this.currentPage,this.size)
-        //subscribe c a d j attend si y de donnes arrive 
-        .subscribe(data=>{
-          this.produits=data;
-          this.totalPages=data["page"].totalPages;
-          this.pages=new Array<number>(this.totalPages)
-        },err=>{
-          console.log(err)
-    
-        })
-    }
-
+              this.catService.getProductsByKeyword(this.currentKeyword,this.currentPage,this.size)
+              //subscribe c a d j attend si y de donnes arrive 
+              .subscribe(data=>{
+                this.produits=data;
+                this.totalPages=data["page"].totalPages;
+                this.pages=new Array<number>(this.totalPages)
+              },err=>{
+                console.log(err)    
+              })
+         }
+//Fin Pagination =============================================
     onDeleteProduct(p){
       debugger
       let conf=confirm("Etes Vous Sure?");

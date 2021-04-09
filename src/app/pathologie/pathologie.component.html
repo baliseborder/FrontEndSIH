@@ -4,27 +4,26 @@
           <div class="panel-heading">Nouveau Pathologie </div>
       
                       <div class="panel-body" *ngIf="mode==1">
-                                      <form  (ngSubmit)="onSavePathologie()" >                                                
-                                          <div class="form-group">
-                                              <label class="control-label">Nom Pathologie</label>
-                                              <input class="form-control" type="text" name="nomPath" [(ngModel)]="currentPathologie.nomPath">  
-                                          </div>
+                                      <form  (ngSubmit)="onSavePathologie()" >  
+                                        <div class="form-group">
+                                            <label class="control-label">Nom Services </label>
+                                            <select name="nomServices"  [(ngModel)]="currentPathologie.nomServices">
+                                                 <option *ngFor="let srs of servicesNames" >{{srs}} </option>
+                                            </select>
+                                         </div>  
+                                         <div class="form-group">
+                                            <label class="control-label">Nom Pathologie</label>
+                                            <input class="form-control" type="text" name="nomPath" [(ngModel)]="currentPathologie.nomPath">  
+                                        </div>
 
-                                        <!-- <div class="form-group"  table >
-                                            <tr><td class="control-label">Tranche d age 1</td>
-                                                <td><input class="form-control" type="text" name="dateFin" [(ngModel)]="currentPathologie.dateFin"></td>  
-                                            </tr>
-                                            
-                                            <tr><td class="control-label">Tranche d age 2</label></td>
-                                                <td><input class="form-control" type="text" name="dateDebut" [(ngModel)]="currentPathologie.dateDebut"> </td> 
-                                             </tr>
-                                            </div>-->
-
-
-
-
-
-
+                                        <div class="form-group">
+                                            <label class="control-label">Date Debut </label>
+                                            <input class="form-control" type="date" name="dateDebut" [(ngModel)]="currentPathologie.dateDebut">  
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Nom Pathologie</label>
+                                            <input class="form-control" type="date" name="dateFin" [(ngModel)]="currentPathologie.dateFin">  
+                                        </div>
 
 
                                           <div class="form-group">
@@ -35,19 +34,15 @@
                                               <label class="control-label">Nombre Sex F</label>
                                               <input class="form-control" type="text" name="nbreSexF"  [(ngModel)]="currentPathologie.nbreSexF">  
                                           </div>
-
                                           <div class="form-group">
                                               <label class="control-label">Nombre Mort M</label>
                                               <input class="form-control" type="text" name="nbreMortM"  [(ngModel)]="currentPathologie.nbreMortM">  
                                           </div>
-
                                           <div class="form-group">
                                               <label class="control-label">Nombre Mort F</label>
                                               <input class="form-control" type="number" name="nbreMortF"  [(ngModel)]="currentPathologie.nbreMortF">  
-                                          </div>
-                          
-                                          <button class="btn btn-success" type="submit">Save</button>
-                          
+                                          </div>                          
+                                          <button class="btn btn-success" type="submit">Valider</button>                          
                                       </form>
                       </div>
                       <div class="panel-body" *ngIf="mode==2">

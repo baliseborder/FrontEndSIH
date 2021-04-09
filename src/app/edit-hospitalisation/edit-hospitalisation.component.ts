@@ -15,9 +15,7 @@ export class EditHospitalisationComponent implements OnInit {
               private hospitServices:HospitalisationService ) { }
 
   ngOnInit(){ 
-    this.url=atob(this.activatedRoute.snapshot.params.id);
-    
-    
+    this.url=atob(this.activatedRoute.snapshot.params.id);    
     this.hospitServices.getResource(this.url)
     .subscribe(data=>{
       this.currentHospit=data;
@@ -27,7 +25,7 @@ export class EditHospitalisationComponent implements OnInit {
     })
 
   }
-
+  //Update 
   onUpdateHospit(value: any){
    this.hospitServices.updateResource(this.url,value)
    .subscribe(data=>{

@@ -45,7 +45,7 @@ export class HospitalisationService {
   
   
   */
-  
+  //udpdate 
    public updateResource(url,data):Observable<any>{
     return this.httpClient.put(url,data,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
     //return  this.httpClient.post(url,data);  saveResource
@@ -53,6 +53,7 @@ export class HospitalisationService {
   
 
   listHospitalisation():Observable<object>{
+    console.log(this.host)
     return this.httpClient.get(`${this.host}/${this.listHosp}`,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
   }
 
@@ -73,9 +74,9 @@ export class HospitalisationService {
  
 
 
-  public saveResource(data):Observable<any>{
+  public saveResource(h):Observable<any>{
     debugger
-    return this.httpClient.post(this.host+"/hospitalisation",data ,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
+    return this.httpClient.post(this.host+"/hospitalisation",h ,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
     //alert("ok")
     //return  this.httpClient.post(url,data);  saveResource
 
@@ -89,8 +90,10 @@ export class HospitalisationService {
   }
   public getServicesNames(){
     return this.httpClient.get(this.host+"/listServicesByName",{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
-   
+     }
 
-  }
+
+
+ 
    
 }

@@ -1,6 +1,7 @@
 export class Personnel {
   // public currentPersonne:number;
     idPersonne:number;
+    nomServices:string;
     nombreSpecialiste:number;
     nombreTs: number;
     nombreIms: number;
@@ -9,11 +10,13 @@ export class Personnel {
     nombreSageFemmes: number; 
     nombreAi: number;
     nombrePharmaciens: number;
-    nombreTss : number;
+    nombreTss: number;
     nombreIde : number;
     nombreGs: number;
-     nombreFs: number;
+    nombreFs: number;
     nombredentistes:number;
+    dateDebit: Date;
+    dateFin:Date;
 
     constructor(){
         this.idPersonne=0;

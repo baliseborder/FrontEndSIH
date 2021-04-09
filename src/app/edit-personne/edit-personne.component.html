@@ -1,0 +1,70 @@
+<div class="Container">
+    <div class="panel panel-default">
+        <div class="panel-heading">Edition du Rapport Personnels</div>
+        <div  class="panel panel-body" *ngIf="currentPersonne">
+            <form #f="ngForm" (ngSubmit)="onUpdatePersonne(f.value)" >
+                 <div class="form-group">
+                    <label class="control-label">Nombre Specialiste</label>
+                    <input class="form-control" type="number" name="nombreSpecialiste" [(ngModel)]="currentPersonne.nombreSpecialiste">  
+                </div>
+                <div class="form-group">
+                    <label class="control-label">NombreTs</label>
+                    <input class="form-control" type="number" name="nombreTs"  [(ngModel)]="currentPersonne.nombreTs">  
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nombre Ims</label>
+                    <input class="form-control" type="number" name="nombreIms"  [(ngModel)]="currentPersonne.nombreIms">  
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nombre Secretariats</label>
+                    <input class="form-control" type="number" name="nombreSecretariats"  [(ngModel)]="currentPersonne.nombreSecretariats">  
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Nombre Generalistes</label>
+                    <input class="form-control" type="number" name="nombreGeneralistes"  [(ngModel)]="currentPersonne.nombreGeneralistes">  
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Nombre SageFemmes</label>
+                    <input class="form-control" type="number" name="nombreSageFemmes"  [(ngModel)]="currentPersonne.nombreSageFemmes">  
+                </div>
+               <div class="form-group">
+                    <label class="control-label">Nombre Ai</label>
+                    <input class="form-control" type="number" name="nombreAi"  [(ngModel)]="currentPersonne.nombreAi">  
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nombre Pharmaciens</label>
+                    <input class="form-control" type="number" name="nombrePharmaciens"  [(ngModel)]="currentPersonne.nombreGeneralistes">  
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nombre Ide</label>
+                    <input class="form-control" type="number" name="nombreIde"  [(ngModel)]="currentPersonne.nombreIde">  
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nombre Gs</label>
+                    <input class="form-control" type="number" name="nombreGs"  [(ngModel)]="currentPersonne.nombreGs">  
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nombre Fs</label>
+                    <input class="form-control" type="number" name="nombreFs"  [(ngModel)]="currentPersonne.nombreFs">  
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nombre dentistes</label>
+                    <input class="form-control" type="number" name="nombredentistes"  [(ngModel)]="currentPersonne.nombredentistes">  
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Date Debut </label>
+                    <input class="form-control" type="date" name="dateDebutHosp"  [(ngModel)]="currentPersonne.dateDebutHosp">  
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Date Fin</label>
+                    <input class="form-control" type="date" name="dateFinHosp"  [(ngModel)]="currentPersonne.dateFinHosp">  
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Edit</button>
+               </div>
+            </form>
+        </div>
+    </div>
+</div> 

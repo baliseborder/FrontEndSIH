@@ -63,10 +63,10 @@ export  class AuthentificationService {
   return  false;
 
   }
-  isRespoInfo(){
+  isUser(){
     if(this.myroles!=undefined) {
       for (let role of this.myroles) {
-        if (role.authority == 'RESPONSABLE') {
+        if (role.authority == 'USER') {
           this.isrespo=true;
 
           return true;}

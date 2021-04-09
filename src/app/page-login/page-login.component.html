@@ -1,46 +1,73 @@
-
-<div class="login-container">
-    <section class="login" id="login">
-      <header>
-        <h2>STATISTIQUE SIH</h2>
-        <h4>Login</h4>
-      </header>
-                        <form  class="login-form"  #f="ngForm" (ngSubmit)="onAuthentifier(f.value)">
-                        <input type="text" class="login-input" ngModel="" name="nom"  placeholder="User" required autofocus/>
-                        <input type="password" class="login-input"  ngModel="" name="pwd"  placeholder="Password" required/>
-
-                      <div class="submit-container">
-                        <button type="submit" class="btn login-button" [disabled]="!f.valid" >SIGN IN</button>
-                      </div>
-                    
-                    </form>
-      </section>
-  </div>
-<!-- <body class="align">
-  <div class="grid">
-    <form  class="login-form"   #f="ngForm" (ngSubmit)="onAuthentifier(f.value)"  >
-        <header class="login__header">
-        <h3 class="login__title"> SIH STATISTIQUE  </h3>
-      </header>
-      <div class="login__body">
-        <div class="form__field">
-          <input type="text"    ngModel="" name="nom"     placeholder="saisir nom " required>
-        </div>
-        <div class="form__field">
-          <input type="password" placeholder="saisir le mot de passe"  ngModel="" name="pwd" required>
-        </div>
-      </div>
-      <footer class="login__footer">
-        <input type="submit"    value="Login">
-        <p><span class="icon icon--info">?</span><a href="#">Forgot Password</a></p>
-      </footer>
-    </form>
-  </div>
-
-</body>-->
-
+<!-- =============================DEBUT CODE HTML==========================================-->
 
   
+<!-- <div  class = "card"   >  
+  <div  class = "card-body"  style="background-color:#070606"  >
+  <div class="login-box"  style="background-color:#f1f1f1 ;border-radius:3%" > -->
+
+                 <!-- <form   #f="ngForm" (ngSubmit)="onAuthentifier(f.value)"> 
+                    <fieldset   >
+                       <legend>Login </legend>
+                    <div class="box">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <input type="text" placeholder="Enter nom utilisateur"  ngModel="" name="nom"   required  >
+
+                    </div>
+                    <div class="box">
+                                <i class="fa fa-lock" aria-hidden="true"></i>
+                                <input type="password" placeholder="Password"  ngModel="" name="pwd"   required>
+                    </div>
+                  <div  class = "form-group" >  
+                        <button type = "submit" class ="btn btn-primary" [disabled]="!f.valid" > Connecter </button>   
+                  </div> 
+                    
+     
+                  </fieldset>
+                  </form>-->
+                              <!-- </div>
+</div>
+
+</div>-->
+
+
+<!-- ====================================FION CODE HTML===================================-->
+
+<body    style="background-image:url(./assets/background.jpeg) ;" >
+<div class="wrapper fadeInDown" >
+    
+  <div id="formContent">
+    <!-- debut image background  -->
+
+     
+  
+    <!-- Fin image background  -->
+    <!-- Tabs Titles -->
+    <h2 class=""> Veuillez-vous Authentifier </h2>
+    <!--<h2 class="inactive underlineHover">Sign Up </h2>-->
+    <!-- Icon -->
+    <!--<div class="fadeIn first">
+      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+    </div>-->
+    <!-- Login Form -->
+    <form #f="ngForm" (ngSubmit)="onAuthentifier(f.value)">
+      <div class="alert alert-danger"  *ngIf="mode==1">
+        <h3>{{this.message}}</h3>
+    </div>
+      <input type="text" id="login" class="fadeIn second"  ngModel=""  name="nom"   required   placeholder="login"  >
+      <input type="password" id="password"       class="fadeIn second" ngModel=""  name="pwd"    required   placeholder="password" >
+      <button type="submit"  class="fadeIn fourth"  [disabled]="!f.valid"   >  Log In</button>
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>
+</body>
+
+
 
 
 

@@ -1,0 +1,41 @@
+<div class="Container">
+    <div class="panel panel-default">
+        <div class="panel-heading">Edition du Rapport Pathologie</div>
+        <div  class="panel panel-body" *ngIf="currentPathologie">
+
+            <form #f="ngForm" (ngSubmit)="onUpdatePathologie(f.value)" >
+                <div class="form-group">
+                    <label class="control-label">Nom Pathologie </label>
+                    <input class="form-control" type="text" name="nomPath"  [(ngModel)]="currentPathologie.nomPath">  
+                </div>    
+                <div class="form-group">
+                    <label class="control-label">Date Debut </label>
+                    <input class="form-control" type="date" name="dateDebutp"  [(ngModel)]="currentPathologie.dateDebut">  
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Date Fin</label>
+                    <input class="form-control" type="date" name="dateFin"  [(ngModel)]="currentPathologie.dateFin">  
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Nbre Sex M</label>
+                    <input class="form-control" type="number" name="nbreSexM"  [(ngModel)]="currentPathologie.nbreSexM">  
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Nbre Sex F</label>
+                    <input class="form-control" type="number" name="nbreSexF"  [(ngModel)]="currentPathologie.nbreSexF">  
+                </div>
+                <div class="form-group">
+                    <label class="control-label"> Nbre Mort M</label>
+                    <input class="form-control" type="number" name="nbreMortM"  [(ngModel)]="currentPathologie.nbreMortM">  
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Nbre Mort F</label>
+                    <input class="form-control" type="number" name="nbreMortF"  [(ngModel)]="currentPathologie.nbreMortF">  
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Edit</button>
+               </div>

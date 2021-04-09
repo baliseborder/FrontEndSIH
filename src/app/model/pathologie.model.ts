@@ -1,12 +1,17 @@
 export  class Pathologie{
-	 idPath:number;
-	 nomPath:String;
-	 nbreSexM:number;
+    idPath:number;
+    nomServices:string;
+    dateDebut:Date;
+    dateFin:Date;
+	nomPath:String;
+	nbreSexM:number;
 	nbreSexF:number;
 	nbreMortM:number;
     nbreMortF:number;
     
+    
     constructor(){
+        this.nomServices;
         this.idPath=0;
        this.nomPath="";
        this.nbreSexM=0;

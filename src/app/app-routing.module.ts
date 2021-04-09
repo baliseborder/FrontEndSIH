@@ -14,6 +14,12 @@ import { ListpathologieComponent } from './listpathologie/listpathologie.compone
 import {PageLoginComponent}from './page-login/page-login.component'
 import { EditHospitalisationComponent } from './edit-hospitalisation/edit-hospitalisation.component';
 import { ServicesHOPComponent } from './services-hop/services-hop.component';
+import { ListServicesComponent } from './list-services/list-services.component';
+import { EditServicesComponent } from './edit-services/edit-services.component';
+import { EditPersonneComponent } from './edit-personne/edit-personne.component';
+import { EditPathologieComponent } from './edit-pathologie/edit-pathologie.component';
+import { GestoinUserComponent } from './gestoin-user/gestoin-user.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {path:'login', component:PageLoginComponent},
@@ -29,11 +35,16 @@ const routes: Routes = [
   {path:'pathologie',component:PathologieComponent},
   {path:'listHosp',component:ListHospitalisationComponent},
   {path:'listPersonne',component:ListPersonnelComponent},
-  {path:'listPathologies',component:ListpathologieComponent},
+  {path:'listPatho',component:ListpathologieComponent},
   {path:'editHospi/:id',component:EditHospitalisationComponent},
   {path:'servicesHop',component:ServicesHOPComponent},
- 
+  {path:'editService/:id',component:EditServicesComponent}, 
+  {path:'listServices',component:ListServicesComponent},
+  {path:'editPersonne/:id',component:EditPersonneComponent},
+  {path:'editPathologie/:id',component:EditPathologieComponent},
   {path:'MyChart',component:MychartComponent},
+  {path:'home',component:HomeComponent},
+  {path:'GestionUser',component:GestoinUserComponent},//,pathMatch:'full'
   {path:'',redirectTo:'login',pathMatch:'full'}
 
 ];

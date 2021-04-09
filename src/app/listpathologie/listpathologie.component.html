@@ -13,30 +13,35 @@
   <table class="table table-bordered table-responsive">
       <thead>
         <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Nom PATHALOGIE</th>
-          <th scope="col">NOMBRE SEXE M</th>
-          <th scope="col">NOMBRE SEXE F</th>
-          <th scope="col">NOMBRE MORT M</th>
-          <th scope="col">NOMBRE MORT F</th>
-          <th scope="col">ACTIONS</th>
+          <td scope="col">ID</td>
+          <td scope="col">Nom PATHALOGIE</td>
+          <td scope="col">DATE D</td>
+          <td scope="col">DATE F</td>
+          <td scope="col">NOMBRE S M</td>
+          <td scope="col">NOMBRE S F</td>
+          <td scope="col">NOMBRE M M</td>
+          <td scope="col">NOMBRE M F</td>
+          <td  colspan="2">ACTIONS</td>
         </tr>
-      </thead>
+      
       
   
-      <tbody>
-        <tr *ngFor= "let path of pathologies">
+      
+        <tr *ngFor= "let path of pathologiess">
           <td>{{path.idPath}}</td>
-          <td>{{path.nbreSexM}}</td>
-          <!--<td>{{p.nbreSexF}}</td>
-          <td>{{p.nbreMortM}}</td>
-          <td>{{p.nbreMortF}}</td>-->
+          <td>{{path.nomPath}}</td>
+          <td>{{path.dateDebut}}</td>
+          <td>{{path.dateFin}}</td>  
+          <td>{{path.nbreSexM}}</td>          
+          <td>{{path.nbreSexF}}</td>
+          <td>{{path.nbreMortM}}</td>
+          <td>{{path.nbreMortF}}</td>
  
-          <td><button (click)="onDelete(path.idPath)" class="btn btn-danger">Delete</button></td>
-          <td><button (click)="onUpdate(path.idpath)" class="btn btn-success">Update</button></td>
+          <td><button (click)="onDelete(path.idPath)" class="btn btn-danger">Supprimer</button></td>
+          <td><button (click)="onEditPathologie(path)" class="btn btn-success">Editer</button></td>
           
           
-      </tbody>
+        </thead>
   </table>
   <!--<ul *ngIf="pages" class="nav nav-pills">
     <li  [ngClass]="i==currentPage?'active':''"  *ngFor="let h of  pages"; let i="index">

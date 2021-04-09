@@ -51,6 +51,7 @@ public pages:Array<number>
     this.hospitalisationService.listHospitalisation().subscribe(
       data => {
         this.hospitalisations = data;
+        console.log(this.hospitalisations)
       },err=>{
         console.log(err);
      
@@ -72,29 +73,19 @@ public pages:Array<number>
 
   }
   onUpdate(id){
-    debugger
+   debugger
     let url1 = "http://localhost:8087/api/v1/hospitalisation/"+id;
     this.router.navigateByUrl("/hospitalisation/"+btoa(url1));
 
-  }
+  } 
 
 
-  onEditHosp(h){
-    
+  onEditHosp(h){    
     debugger
     let url2="http://localhost:8087/api/v1/hospitalisation/"+h.idHosp;
-
-  //let url1=h._links.self.href;
-  
-  console.log(url2);
-  this.router.navigateByUrl("/editHospi/"+btoa(url2))
- // console.log(url1);
-  /*
-//let url=p._links.self.href;
-   //on peut pas mettre dans url un parametre contient http, il faut donnes une fonction base 64 de code pour fair on 
-   //utilise une fonction btoa(url)
-   this.router.navigateByUrl("/editHospi/"+btoa(url1));*/
-  }
+      console.log(url2);
+      this.router.navigateByUrl("/editHospi/"+btoa(url2))
+   }
 
  /* chercherHospitalisation(){
     this.hospitalisationService.getHospByKeyword(this.currentKeyword,this.currentPage,this.size)

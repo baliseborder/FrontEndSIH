@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Liste des Services </div>
+        <div class="panel-body">
+<!--   Debut de Chercher et Pagination -->
+       <!-- <form #f="ngForm" (ngSubmit)="onChercher(f.value)">
+            <div class="form-group">
+                <label>Keyword</label>
+                <input type="text" name="keyword" ngModel>
+                <button type="submit" class="btn btn-primary">Chercher</button>
+            </div>
+        </form>-->
+<!--   Fin d Chercher et Pagination -->
+
+
+<table class="table table-bordered table-responsive">
+      <thead>
+          <tr>
+               <td> ID</td>
+                <td>NOM SERVICE</td>
+                <td colspan="2" >ACTIONS</td>
+        </tr>
+      </thead> 
+      <tbody>
+        <!--  let p of produits._embedded.produits-->
+        <tr *ngFor= "let s of services">
+          <th scope="row">{{s.idService}}</th>
+          <td>{{s.nomService}}</td>
+          <td><button (click)="onDelete(s.idService)" class="btn btn-danger">Supprimer</button></td>
+         <!-- <td><button (click)="onUpdate(s.idService)" class="btn btn-success">Update</button></td>-->
+          <td><button (click)="onEditService(s)" class="btn btn-success">Editer</button></td>
+      </tbody>
+  </table>
+
+<!--    Debut de Pagination -->
+  
+<!-- <ul *ngIf="pages"  class="nav nav-pills">
+  <li [ngClass]="i==currentPage?'active':''" *ngFor="let p of pages; let i=index" >
+      <a  class="clickable" (click)="onPageServices(i)">{{i}}</a>
+  </li>
+</ul>-->
+  
+
+  <!-- Fin Pagination -->
+
+ </div>
+  </div>
+  </div>
+  
+  
+  

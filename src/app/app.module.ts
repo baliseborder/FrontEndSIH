@@ -21,6 +21,12 @@ import { PageLoginComponent } from './page-login/page-login.component';
 import { AuthentificationService } from './authentification-service.service';
 import { EditHospitalisationComponent } from './edit-hospitalisation/edit-hospitalisation.component';
 import { ServicesHOPComponent } from './services-hop/services-hop.component';
+import { ListServicesComponent } from './list-services/list-services.component';
+import { EditServicesComponent } from './edit-services/edit-services.component';
+import { EditPersonneComponent } from './edit-personne/edit-personne.component';
+import { EditPathologieComponent } from './edit-pathologie/edit-pathologie.component';
+import { GestoinUserComponent } from './gestoin-user/gestoin-user.component';
+import { HomeComponent } from './home/home.component';
 
 
 //import { Hospitalisation } from './model/hospit.model';
@@ -42,6 +48,12 @@ import { ServicesHOPComponent } from './services-hop/services-hop.component';
     PageLoginComponent,
     EditHospitalisationComponent,
     ServicesHOPComponent,
+    ListServicesComponent,
+    EditServicesComponent,
+    EditPersonneComponent,
+    EditPathologieComponent,
+    GestoinUserComponent,
+    HomeComponent,
     
   ],
   imports: [

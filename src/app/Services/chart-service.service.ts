@@ -28,6 +28,7 @@ export class ChartServiceService implements OnInit{
   }
   ngOnInit(): void {
  
+    
   }
 
 
@@ -36,7 +37,18 @@ export class ChartServiceService implements OnInit{
   getNbGuerris(dateDebutHosp){
     return this.httpClient.get(`${this.host}/${this.nbguerris}/${dateDebutHosp}`);
   }
-
+  ////retourn liste des  annees 
+  tousDate(){
+    return this.httpClient.get(this.host+"/tousDate",{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
+   }
+     
+//retourn liste des mois d une annes   
+  DatesAnnes(annees){
+    return this.httpClient.get(`${this.host}/AnnesMois/${annees}`,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
+    }
+    public HospServiceConsultations(nom){
+      return this.httpClient.get(this.host+"/HospServiceConsultations/"+nom,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
+       }
 
   getNbDeces(date):Observable<number>{
     return this.httpClient.get<number>(`${this.host}/${this.nbdeces}/${date}`)
@@ -70,6 +82,21 @@ export class ChartServiceService implements OnInit{
 
 
   }
+  public diagrammeNbreGerires(choisAnnes){
+    return this.httpClient.get(this.host+"/diagrammeNbreGerires/"+choisAnnes,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
+  }
 
+public diagrammeNbreDeces(choisAnnesDecces){
+  return this.httpClient.get(this.host+"/diagrammeNbreDeces/"+choisAnnesDecces,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
+ 
+}
+
+public diagrammeNbreConsult(choisAnnesConsult){
+  return this.httpClient.get(this.host+"/diagrammeNbreConsult/"+choisAnnesConsult,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
+ }
+ public diagrammeNbreReferer(choisAnnesReferer){
+   return this.httpClient.get(this.host+"/diagrammeNbreReferer/"+choisAnnesReferer,{headers: new HttpHeaders({'authorization': this.auth.jwtToken })});
+
+ }
 
 }

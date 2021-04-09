@@ -32,31 +32,13 @@ public pages:Array<number>*/
 
   ngOnInit(): void {
     debugger
-    this.getServicesNames();
- 
-   // this.url=atob(this.activatedRoute.snapshot.params.id);
-   // if(this.url != undefined){
-     /* this.hospitServices.getHospitalisation(this.url).subscribe(
-        data =>{
-        // this.currentHospit = data;
-       /*  if(this.currentHospit != undefined){
-         // this.isHidden = false;
-         }*/
-       /* }
-      )**/
-   // }
- 
-
-  }
-/* public getProductsByKeyword(mc:String, page:number,size:number){
-    //produits/search/byDesignationPage?mc=H&page=0&size=3
-    return this.httpClient.get(this.host+"/hospitalisations/search/byDesignationPage?mc="+mc+"&page="+page+"&size="+size);
-  }*/
-
+    this.getServicesNames(); 
+     }
   onSaveHospitalisation(){
    debugger
    return this.hospitServices.saveResource(this.currentHospit)
    .subscribe(res=>{
+    debugger
      this.currentHospit=res
      alert("donnes ajouter avec succes ")
      this.mode=2;
@@ -77,27 +59,11 @@ public pages:Array<number>*/
         resp=>{
           this.serviceNames=resp;
           this.servicesNames=this.serviceNames;
+          console.log(this.servicesNames)
 
 
         }
 
       )
-    }
-  
-   /*
-   if(this.currentHospit.idHosp == null ){
-      alert("Add");
-   }else{
-    // alert("Vous voulez mettre a jours cet objet !")
-      this.hospitServices.updateHospitalisation(this.currentHospit.idHosp,this.currentHospit).subscribe(
-          data =>{
-
-          }
-      ) 
-      alert("la modification ce fait avec succes id L'Objet est  "+this.currentHospit.idHosp)
-  
-    }
-  */
-
- 
+    }   
  }

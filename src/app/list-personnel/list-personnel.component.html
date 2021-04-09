@@ -2,46 +2,38 @@
     <div class="panel panel-primary">
         <div class="panel-heading">Liste des Personnels </div>
   <table class="table table-bordered table-responsive">
-      <thead>
+    <tbody>
              <tr>
-              <th scope="col">ID</th>
-              <th scope="col">NOMBRE SPECIALISTE</th>
-              <th scope="col">NOMBRE TS</th>
-           <!--  <th scope="col">NOMBRE IMS</th>
+              <td scope="col">ID</td>
+              <td scope="col">NOMBRE SPECIALISTE</td>
+              <!--<td scope="col">NOMBRE TS</td>
+             <th scope="col">NOMBRE IMS</th>
            <th scope="col">NOMBRE SECRETARIATS</th>
             <th scope="col">NOMBRE GENERALISTES</th>-->
-            <th scope="col">NOMBRE SAGE-FEMMES</th>
-            <th scope="col">NOMBRE AI</th>
-            <th scope="col">NOMBRE PHARMACIENS</th>
-            <th scope="col">NOMBRE TSS</th>
-            <th scope="col">NOMBRE IDE</th>
-            <th scope="col">NOMBRE DENTISTES</th>
-          <th scope="col">ACTIONS</th>
-        </tr>
-      </thead>
-       <tbody>
+            <td scope="col">NOMBRE SAGE-FEMMES</td>
+            <!--<td scope="col">NOMBRE AI</td>-->
+            <td scope="col">NOMBRE PHARMACIENS</td>
+            <td scope="col">NOMBRE DENTISTES</td>
+            <!--<td scope="col">NOMBRE TSS</td>-->            
+            <td scope="col">DATE DEBIT</td>
+            <td scope="col">DATE FIN</td>
+            <td scope="col">SERVICES</td>
+            
+          <td scope="colspane=2">ACTIONS</td>
+        </tr>             
          <tr *ngFor="let pr of personne">
           <td>{{pr.idPersonne}}</td>
           <td>{{pr.nombreSpecialiste}}</td>
-          <td>{{pr.nombreTs}}</td>
-          <td>{{pr.nombreIms}}</td>
-          <td>{{pr.nombreSecretariats}}</td>
-          <td>{{pr.nombreGeneralistes}}</td>
-          <td>{{pr.nombreSageFemmes}}</td>
-          <td>{{pr.nombreAi}}</td>
-          <!--<td>{{pr.nombrePharmaciens}}</td>
-          <td>{{pr.nombreTss}}</td>
-          <td>{{pr.nombreIde}}</td>
-          <td>{{Pr.nombredentistes}}</td>-->
-          <td><button (click)="onDelete(pr.idPersonne)" class="btn btn-danger">Delete</button></td>
-          <td><button (click)="onUpdate(pr)" class="btn btn-success">Update</button></td>
+          <td>{{pr.nombreSageFemmes}}</td>    
+          <td>{{pr.nombrePharmaciens}}</td>
+          <td>{{pr.nombredentistes}}</td>
+          <td>{{pr.dateDebit}}</td>
+          <td>{{pr.dateFin}}</td> 
+          <td>{{pr.service.nomService}}</td>         
+          <td><button (click)="onDelete(pr.idPersonne)" class="btn btn-danger">Supprimer</button></td>
+          <td><button (click)="onEditPersonne(pr)" class="btn btn-success">Editer</button></td>
           </tr>
         </tbody>
-                    <!--<ul *ngIf="pages"  class="nav nav-pills">
-                      <li [ngClass]="i==currentPage?'active':''" *ngFor="let h of pages; let i=index" >
-                          <a  class="clickable" (click)="onPageHospitalisation(i)">{{i}}</a>
-                      </li>
-                  </ul>-->
     </table>
   
   

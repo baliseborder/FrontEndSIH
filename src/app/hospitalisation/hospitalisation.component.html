@@ -1,34 +1,17 @@
 <div  class="container">
         <div class="col-md-9 col-sm-6 col-xs-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Nouveau Rapport </div>            
+                <div class="panel-heading">Nouveau Rapport hospitalisation </div>            
                             <div class="panel-body" *ngIf="mode==1">
                                             <form  (ngSubmit)="onSaveHospitalisation()" > 
-                                                
-                                                                                   
-                                            <!--<div class="form-group">
-                                                    <label>Select Nom Services</label>
-                                                    <label>
-                                                        <select   [(value)]="nomServices">
-                                                                <option>None</option>
-                                                                <option value="Urgence">Urgence</option>
-                                                                <option value="Pediatrie">Pediatrie</option>
-                                                                <option value="Urologies">Urologies</option>
-                                                        </select>
-                                                    </label>
-                                                </div>-->
-
-                                                <div class="form-group">
-                                                    <label class="control-label">Nom Services </label>
-                                                   <!-- <input class="form-control" type="text" name="nomServices"  [(ngModel)]="currentHospit.nomServices">  
-                                                   --><select name="nomServices"  [(ngModel)]="currentHospit.nomServices">
+                                               <div class="form-group">
+                                                   <label class="control-label">Nom Services </label>
+                                                   <select name="nomServices"  [(ngModel)]="currentHospit.nomServices">
+                                                       <option value="" hidden="hidden"></option>
                                                         <option *ngFor="let s of servicesNames" >{{s}} </option>
                                                     </select>
                                                 </div>
-
-
                                             <div class="form-group">
-                                            
                                                 <label class="control-label">Date Debut </label>
                                                 <input class="form-control" type="date" name="dateDebutHosp"  [(ngModel)]="currentHospit.dateDebutHosp">  
                                             </div>
@@ -36,15 +19,7 @@
                                                 <label class="control-label">Date Fin</label>
                                                 <input class="form-control" type="date" name="dateFinHosp"  [(ngModel)]="currentHospit.dateFinHosp">  
                                             </div>
-
-
-
-
-
-
-                                                
-
-                                                <div class="form-group">
+                                           <div class="form-group">
                                                     <label class="control-label">Nombre Jours Hosp </label>
                                                     <input class="form-control" type="text" name="nombreJrsHosp"  [(ngModel)]="currentHospit.nombreJrsHosp">  
                                                 </div>
@@ -79,22 +54,15 @@
                                                 <div class="form-group">
                                                     <label class="control-label">nombre Consultation</label>
                                                     <input class="form-control" type="number" name="nombreConsul"  [(ngModel)]="currentHospit.nombreConsul">  
-                                                </div>
-                                           
-
-                                            <button class="btn btn-success"  type="submit">Ajouter</button>                                          
+                                                </div>                                          
+                                                <button class="btn btn-success"  type="submit">Valider</button>                                          
                                            </form>
-                            </div>
-
-
+                                </div>
                             <div class="panel-body" *ngIf="mode==2">
                                         <button class="btn btn-success"  (click)="onNewHospitalisation()">Nouveau Rapport</button>
                                         <div class="form-group">
                                             <label >ID:</label><label>{{currentHospit.idHosp}}</label>
                                         </div>
-                                        <div class="form-group">
-                                            <label >Nom Services :</label><label>{{currentHospit.nomServices}}</label>
-                                       </div>
                                        <div class="form-group">
                                         <label >Nombre Malades Hosp :</label><label>{{currentHospit.nombreMaladHosp}}</label>
                                    </div>
@@ -132,20 +100,6 @@
                             <div class="form-group">
                                 <label >Durée Moyenne de séjours :</label><label>{{currentHospit.dureeMoyenDesjrs}}</label>
                         </div>
-
-                                    
-
-                                    <!-- <div class="form-group">
-                                        
-                                                <select class="browser-default custom-select">
-                                                    <option selected>Open this select menu</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                    </select>
-                                         </div>
-                                    -->
-                    
                             </div>
             </div>
      </div>

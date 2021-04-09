@@ -12,27 +12,23 @@
 </form>-->
 <!--<button class="btn btn-primary" (click)="onGetHospitalisation()"></button>-->
 <table class="table table-bordered table-responsive">
-    <thead>
+  <tbody>
       <tr>
-        <th scope="col">ID</th>
-        <th scope="col">NOMBRE GUERRIS</th>
-        <th scope="col">NOMBRE REFERES</th>
-        <th scope="col">NOMBRE DECES</th>
-        <th scope="col">NOMBRE CHAMBRE</th>
-        <th scope="col">NOMBRE LITS</th>
-        <th scope="col">NOMBRE CONSULT</th>
-        <th scope="col">Date Debut</th>
-        <th scope="col">Date Fin</th>
-        <th scope="col">NOM SERVICE</th>
-        <th scope="col">ACTIONS</th>
-      </tr>
-    </thead>
-    
-
-    <tbody>
-      <!--<tr *ngFor="let h of hospitalisations._embedded.hospitalisations"></tr>  -->   
+        <td >ID</td>
+        <td >NOMBRE GUERRIS</td>
+        <td >NOMBRE REFERES</td>
+        <td >NOMBRE DECES</td>
+        <td >NOMBRE CHAMBRE</td>
+        <td >NOMBRE LITS</td>
+        <td >NOMBRE CONSULT</td>
+        <td >Date Debut</td>
+        <td >Date Fin</td>
+        <td >SERVICE</td>
+        <td colspane="2" >ACTIONS</td>               
+      </tr> 
+          <!--<tr *ngFor="let h of hospitalisations._embedded.hospitalisations"></tr>  -->   
       <tr *ngFor= "let h of hospitalisations">
-        <th scope="row">{{h.idHosp}}</th>
+        <td scope="row">{{h.idHosp}}</td>
         <td>{{h.nombreGuerris}}</td>
         <td>{{h.nombreReferes}}</td>
         <td>{{h.nombreDeces}}</td>
@@ -41,12 +37,10 @@
         <td>{{h.nombreConsul}}</td>
         <td>{{h.dateDebutHosp}}</td>
         <td>{{h.dateFinHosp}}</td>
-        <td>{{h.nomServices}}</td>
-        <td><button (click)="onDelete(h.idHosp)" class="btn btn-danger">Delete</button></td>
-        <td><button (click)="onUpdate(h.idHosp)" class="btn btn-success">Update</button></td>
-        <td><button (click)="onEditHosp(h)" class="btn btn-success">Edit</button></td>
-        
-        
+        <td>{{h.service.nomService}}</td>
+        <td><button (click)="onDelete(h.idHosp)" class="btn btn-danger">Supprimer</button></td>
+        <td><button (click)="onEditHosp(h)" class="btn btn-success">Editer</button></td>
+        </tr>   
     </tbody>
 </table>
 <!--<ul *ngIf="pages" class="nav nav-pills">
